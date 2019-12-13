@@ -6,7 +6,6 @@
 //  Copyright © 2019 Siri Tembunkiart. All rights reserved.
 //
 
-import SwiftUI
 import Foundation
 import Combine
 
@@ -15,6 +14,8 @@ class PomodoroTimer: ObservableObject {
   static let SHORT_BREAK = 300 // this gets modulo'd to determine how fast breaktime is gained
   static let LONG_BREAK = 600 // 10 extra minutes for clover break
   static let CLOVER_COUNT = 4 // number of poms per clover
+  
+  weak var delegate: PomodoroTimerDelegate?
   
   var timer: Timer?
   
@@ -34,10 +35,29 @@ class PomodoroTimer: ObservableObject {
     self.timer?.invalidate()
     
     self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-      self.updateFocusCounter(increment: 1)
+      self.updateCounters(increment: 1)
     }
     
     self.isBreak = false
+  }
+  
+  func startBreak() {
+    self.timer?.invalidate()
+    
+    // reset current time so we get a fresh pom. total time is saved in totalCounter
+    self.currentCounter = 0
+    
+    self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+      self.updateCounters(increment: 1)
+    }
+    
+    self.isBreak = true
+  }
+  
+  private func updateCounters(increment: Int) {
+    isBreak ? updateBreakCounter(increment: increment) : updateFocusCounter(increment: increment)
+    
+    delegate?.didReceiveUpdate(isBreak: isBreak, focusTimeDisplay: focusTimeDisplay, breakTimeDisplay: breakTimeDisplay, numPoms: numPoms, numClovers: numClovers)
   }
   
   private func updateFocusCounter(increment: Int) {
@@ -67,19 +87,6 @@ class PomodoroTimer: ObservableObject {
     self.updateDisplays()
   }
   
-  func startBreak() {
-    self.timer?.invalidate()
-    
-    // reset current time so we get a fresh pom. total time is saved in totalCounter
-    self.currentCounter = 0
-    
-    self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-      self.updateBreakCounter(increment: 1)
-    }
-    
-    self.isBreak = true
-  }
-  
   private func updateBreakCounter(increment: Int) {
     self.breakCounter -= 1
     
@@ -90,6 +97,8 @@ class PomodoroTimer: ObservableObject {
     self.resetCounters()
     self.isBreak = true
     timer?.invalidate()
+    
+    delegate?.didReceiveUpdate(isBreak: isBreak, focusTimeDisplay: focusTimeDisplay, breakTimeDisplay: breakTimeDisplay, numPoms: numPoms, numClovers: numClovers)
   }
   
   private func resetCounters() {
@@ -136,4 +145,10 @@ class PomodoroTimer: ObservableObject {
     
     return "\(minutesString):\(secondsString)"
   }
+}
+
+protocol PomodoroTimerDelegate: class {
+  
+  func didReceiveUpdate(isBreak: Bool, focusTimeDisplay: String, breakTimeDisplay: String, numPoms: Int, numClovers: Int)
+
 }
