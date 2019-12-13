@@ -14,6 +14,7 @@
 		1EC8BFAE23A4226700FBF015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8BFAC23A4226700FBF015 /* Main.storyboard */; };
 		1EC8BFBA23A4226700FBF015 /* flexpom_macosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFB923A4226700FBF015 /* flexpom_macosTests.swift */; };
 		1EC8BFC523A4226700FBF015 /* flexpom_macosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFC423A4226700FBF015 /* flexpom_macosUITests.swift */; };
+		1EC8BFD423A4229C00FBF015 /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		1EC8BFC023A4226700FBF015 /* flexpom-macosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "flexpom-macosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC8BFC423A4226700FBF015 /* flexpom_macosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flexpom_macosUITests.swift; sourceTree = "<group>"; };
 		1EC8BFC623A4226700FBF015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		1EC8BFA223A4226600FBF015 /* flexpom-macos */ = {
 			isa = PBXGroup;
 			children = (
+				1EC8BFD223A4227600FBF015 /* Models */,
 				1EC8BFA323A4226600FBF015 /* AppDelegate.swift */,
 				1EC8BFA523A4226600FBF015 /* ViewController.swift */,
 				1EC8BFAA23A4226700FBF015 /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				1EC8BFC623A4226700FBF015 /* Info.plist */,
 			);
 			path = "flexpom-macosUITests";
+			sourceTree = "<group>";
+		};
+		1EC8BFD223A4227600FBF015 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			files = (
 				1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */,
 				1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */,
+				1EC8BFD423A4229C00FBF015 /* PomodoroTimer.swift in Sources */,
 				1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
