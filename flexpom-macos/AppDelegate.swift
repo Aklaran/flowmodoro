@@ -20,7 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
     statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    statusBarItem.button?.title = "🌯"
+    let foo = NSImage(named: "RippedTimer")
+    foo?.isTemplate = true
+    statusBarItem.button?.image = foo
     statusBarItem.button?.action = #selector(togglePopover(_:))
     
     popover.contentViewController = ViewController.freshController()
