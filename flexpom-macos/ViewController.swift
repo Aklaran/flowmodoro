@@ -12,6 +12,9 @@ class ViewController: NSViewController {
 
   @IBOutlet weak var focusLabel: NSTextField!
   @IBOutlet weak var breakLabel: NSTextField!
+  @IBOutlet weak var pomLabel: NSTextField!
+  @IBOutlet weak var cloverLabel: NSTextField!
+
   
   @IBOutlet weak var timerButton: NSButton!
   
@@ -48,6 +51,9 @@ extension ViewController: PomodoroTimerDelegate {
     timerButton.title = isBreak ? "Focus" : "Break"
     focusLabel.stringValue = focusTimeDisplay
     breakLabel.stringValue = breakTimeDisplay
+    
+    pomLabel.stringValue = "Poms: " + String(numPoms)
+    cloverLabel.stringValue = "Clovers: " + String(numClovers)
   }
 }
 
