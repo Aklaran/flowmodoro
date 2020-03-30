@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3FB0FF243298C900657F66 /* EventMonitor.swift */; };
 		1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA323A4226600FBF015 /* AppDelegate.swift */; };
 		1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA523A4226600FBF015 /* ViewController.swift */; };
 		1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA723A4226600FBF015 /* flexpom_macos.xcdatamodeld */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E3FB0FF243298C900657F66 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		1EC8BFA023A4226600FBF015 /* flexpom-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flexpom-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC8BFA323A4226600FBF015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC8BFA523A4226600FBF015 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */,
+				1E3FB0FF243298C900657F66 /* EventMonitor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */,
+				1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */,
 				1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */,
 				1EC8BFD423A4229C00FBF015 /* PomodoroTimer.swift in Sources */,
 				1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */,

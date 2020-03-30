@@ -57,3 +57,18 @@ extension ViewController: PomodoroTimerDelegate {
   }
 }
 
+extension ViewController {
+  // MARK: Storyboard instantiation
+  static func freshController() -> ViewController {
+    //1.
+    let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+    //2.
+    let identifier = NSStoryboard.SceneIdentifier("ViewController")
+    //3.
+    guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? ViewController else {
+      fatalError("Why cant i find ViewController? - Check Main.storyboard")
+    }
+    return viewcontroller
+  }
+}
+
