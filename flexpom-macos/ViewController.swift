@@ -18,13 +18,12 @@ class ViewController: NSViewController {
   
   @IBOutlet weak var timerButton: NSButton!
   
-  var timer: PomodoroTimer?
+  var timer: PomodoroTimer!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    timer = PomodoroTimer()
-    timer?.delegate = self
+    
+    timer.delegates.append(self)
   }
   
   @IBAction func timerClicked(_ sender: NSButton) {
@@ -59,7 +58,7 @@ extension ViewController: PomodoroTimerDelegate {
 
 extension ViewController {
   // MARK: Storyboard instantiation
-  static func freshController() -> ViewController {
+  static func freshController(timer: PomodoroTimer) -> ViewController {
     //1.
     let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
     //2.
@@ -68,6 +67,9 @@ extension ViewController {
     guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? ViewController else {
       fatalError("Why cant i find ViewController? - Check Main.storyboard")
     }
+    
+    viewcontroller.timer = timer
+    
     return viewcontroller
   }
 }

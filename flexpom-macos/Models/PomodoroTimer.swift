@@ -15,7 +15,7 @@ class PomodoroTimer: ObservableObject {
   static let LONG_BREAK = 600 // 10 extra minutes for clover break
   static let CLOVER_COUNT = 4 // number of poms per clover
   
-  weak var delegate: PomodoroTimerDelegate?
+  var delegates = [PomodoroTimerDelegate]()
   
   var timer: Timer?
   
@@ -57,7 +57,10 @@ class PomodoroTimer: ObservableObject {
   private func updateCounters(increment: Int) {
     isBreak ? updateBreakCounter(increment: increment) : updateFocusCounter(increment: increment)
     
-    delegate?.didReceiveUpdate(isBreak: isBreak, focusTimeDisplay: focusTimeDisplay, breakTimeDisplay: breakTimeDisplay, numPoms: numPoms, numClovers: numClovers)
+  
+    delegates.forEach { delegate in
+      delegate.didReceiveUpdate(isBreak: isBreak, focusTimeDisplay: focusTimeDisplay, breakTimeDisplay: breakTimeDisplay, numPoms: numPoms, numClovers: numClovers)
+    }
   }
   
   private func updateFocusCounter(increment: Int) {
@@ -98,7 +101,9 @@ class PomodoroTimer: ObservableObject {
     self.isBreak = true
     timer?.invalidate()
     
-    delegate?.didReceiveUpdate(isBreak: isBreak, focusTimeDisplay: focusTimeDisplay, breakTimeDisplay: breakTimeDisplay, numPoms: numPoms, numClovers: numClovers)
+    delegates.forEach { delegate in
+      delegate.didReceiveUpdate(isBreak: isBreak, focusTimeDisplay: focusTimeDisplay, breakTimeDisplay: breakTimeDisplay, numPoms: numPoms, numClovers: numClovers)
+    }
   }
   
   private func resetCounters() {

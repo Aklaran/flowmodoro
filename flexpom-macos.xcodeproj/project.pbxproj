@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3FB0FF243298C900657F66 /* EventMonitor.swift */; };
+		1E3FB1022432B0BC00657F66 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3FB1012432B0BC00657F66 /* NotificationManager.swift */; };
 		1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA323A4226600FBF015 /* AppDelegate.swift */; };
 		1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA523A4226600FBF015 /* ViewController.swift */; };
 		1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA723A4226600FBF015 /* flexpom_macos.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1E3FB0FF243298C900657F66 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		1E3FB1012432B0BC00657F66 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = "flexpom-macos/NotificationManager.swift"; sourceTree = SOURCE_ROOT; };
 		1EC8BFA023A4226600FBF015 /* flexpom-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flexpom-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC8BFA323A4226600FBF015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC8BFA523A4226600FBF015 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				1EC8BFD223A4227600FBF015 /* Models */,
 				1EC8BFA323A4226600FBF015 /* AppDelegate.swift */,
+				1E3FB1012432B0BC00657F66 /* NotificationManager.swift */,
 				1EC8BFA523A4226600FBF015 /* ViewController.swift */,
 				1EC8BFAA23A4226700FBF015 /* Assets.xcassets */,
 				1EC8BFAC23A4226700FBF015 /* Main.storyboard */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E3FB1022432B0BC00657F66 /* NotificationManager.swift in Sources */,
 				1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */,
 				1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */,
 				1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */,

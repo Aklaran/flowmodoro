@@ -15,17 +15,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   var eventMonitor: EventMonitor?
   
   let popover = NSPopover()
-
+  
+  var notificationManager: NotificationManager!
+  
+  let timer = PomodoroTimer.init()
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     // Insert code here to initialize your application
     statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    let foo = NSImage(named: "RippedTimer")
-    foo?.isTemplate = true
-    statusBarItem.button?.image = foo
+    let image = NSImage(named: "RippedTimer")
+    image?.isTemplate = true
+    statusBarItem.button?.image = image
     statusBarItem.button?.action = #selector(togglePopover(_:))
     
-    popover.contentViewController = ViewController.freshController()
+    popover.contentViewController = ViewController.freshController(timer: timer)
+    
+    notificationManager = NotificationManager.init(timer: timer)
     
     eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self]
       event in
