@@ -10,8 +10,8 @@ import Foundation
 import Combine
 
 class PomodoroTimer: ObservableObject {
-  static let POM_THRESH = 1500 // seconds needed to achieve a pom
-  static let SHORT_BREAK = 300 // this gets modulo'd to determine how fast breaktime is gained
+  static let POM_THRESH = 5 // seconds needed to achieve a pom
+  static let SHORT_BREAK = 1 // this gets modulo'd to determine how fast breaktime is gained
   static let LONG_BREAK = 600 // 10 extra minutes for clover break
   static let CLOVER_COUNT = 4 // number of poms per clover
   
@@ -33,6 +33,8 @@ class PomodoroTimer: ObservableObject {
   
   func startFocus() {
     self.timer?.invalidate()
+    
+    self.currentCounter = 0
     
     self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
       self.updateCounters(increment: 1)
@@ -76,14 +78,14 @@ class PomodoroTimer: ObservableObject {
     
     if self.totalCounter % PomodoroTimer.POM_THRESH == 0 {
       self.numPoms += 1
-      
-      self.currentCounter = 1
-      
+            
       if self.numPoms % PomodoroTimer.CLOVER_COUNT == 0 {
         self.numClovers += 1
         self.breakCounter += PomodoroTimer.LONG_BREAK
       }
-      
+    }
+    
+    if self.currentCounter % PomodoroTimer.POM_THRESH == 0 {
       self.startFocus()
     }
     
