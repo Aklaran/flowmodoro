@@ -26,9 +26,9 @@ class NotificationManager : NSObject, PomodoroTimerDelegate, NSUserNotificationC
   }
   
   func didReceiveUpdate(isBreak: Bool, focusTimeDisplay: String, breakTimeDisplay: String, numPoms: Int, numClovers: Int) {
-    if focusTimeDisplay == "0:05" {
+    if !isBreak && focusTimeDisplay == "00:01" {
       showEndOfPomNotification()
-  } else if breakTimeDisplay == "0:05" {
+  } else if isBreak && breakTimeDisplay == "00:10" {
       showEndOfBreakNotification()
     }
   }
