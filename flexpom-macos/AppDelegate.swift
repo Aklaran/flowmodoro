@@ -9,8 +9,9 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
   var statusBarItem: NSStatusItem!
+  var statusBarMenu: NSMenu!
   
   var eventMonitor: EventMonitor?
   
@@ -21,12 +22,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   let timer = PomodoroTimer.init()
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Insert code here to initialize your application
+    // Initialize status bar item
     statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    
     let image = NSImage(named: "RippedTimer")
     image?.isTemplate = true
     statusBarItem.button?.image = image
-    statusBarItem.button?.action = #selector(togglePopover(_:))
+    
+    statusBarItem.button?.action = #selector(statusBarButtonClicked(_:))
+    statusBarItem.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
+    
+    // initialize right-click menu
+    statusBarMenu = NSMenu(title: "Status Bar Menu")
+    statusBarMenu.delegate = self
+    statusBarMenu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
     
     popover.contentViewController = ViewController.freshController(timer: timer)
     
@@ -40,7 +49,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
   }
   
-  @objc func togglePopover(_ sender: Any?) {
+  @objc func statusBarButtonClicked(_ sender: NSStatusBarButton) {
+    let event = NSApp.currentEvent!
+    if event.type == NSEvent.EventType.rightMouseUp {
+      statusBarItem.menu = statusBarMenu // add menu to button...
+      statusBarItem.button?.performClick(nil) // ...and click it
+    } else {
+      togglePopover(self)
+    }
+  }
+  
+  func togglePopover(_ sender: Any?) {
     if popover.isShown {
       closePopover(sender: sender)
     } else {
@@ -60,6 +79,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     popover.performClose(sender)
     
     eventMonitor?.stop()
+  }
+  
+  @objc func menuDidClose(_ menu: NSMenu) {
+    statusBarItem.menu = nil // remove menu so button displays default behavior
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
