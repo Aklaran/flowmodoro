@@ -130,6 +130,8 @@ extension FocusSession: TimerObserver {
         if self.currentFocusCounter % self.pomodoroTimeSec == 0 {
             self.commitBlock()
             self.beginBlock()
+            
+            // FIXME: No hook to update the Focus button label, so it stays on "Break"
         }
     }
     

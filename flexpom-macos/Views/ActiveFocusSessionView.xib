@@ -21,33 +21,33 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e6Q-hW-k4u">
-                    <rect key="frame" x="18" y="0.0" width="54" height="16"/>
+                    <rect key="frame" x="18" y="0.0" width="60" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Poms: 0" id="dFo-Nf-hIi">
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name="FiraCode-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SrZ-EV-oBd">
-                    <rect key="frame" x="108" y="0.0" width="65" height="16"/>
+                    <rect key="frame" x="89" y="0.0" width="84" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Clovers: 0" id="7b9-ff-AjD">
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name="FiraCode-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Wu-cw-MJ8">
-                    <rect key="frame" x="78" y="107" width="33" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="0:00" id="DeZ-Hi-QDj">
-                        <font key="font" metaFont="system"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Wu-cw-MJ8">
+                    <rect key="frame" x="71" y="106" width="48" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="00:00" id="DeZ-Hi-QDj">
+                        <font key="font" size="13" name="FiraCode-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-xq-Mg6">
-                    <rect key="frame" x="75" y="140" width="40" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="25:00" id="06A-hH-HPU">
-                        <font key="font" usesAppearanceFont="YES"/>
+                    <rect key="frame" x="54" y="123" width="82" height="29"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="25:00" id="06A-hH-HPU">
+                        <font key="font" size="22" name="FiraCode-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -59,9 +59,9 @@
                 <constraint firstItem="rpf-xq-Mg6" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="KeK-Gn-zj6"/>
                 <constraint firstAttribute="trailing" secondItem="SrZ-EV-oBd" secondAttribute="trailing" constant="20" id="M1O-9B-Lis"/>
                 <constraint firstItem="e6Q-hW-k4u" firstAttribute="firstBaseline" secondItem="SrZ-EV-oBd" secondAttribute="firstBaseline" id="Pk6-Kt-9Jm"/>
-                <constraint firstItem="5Wu-cw-MJ8" firstAttribute="top" secondItem="rpf-xq-Mg6" secondAttribute="bottom" constant="17" id="c6J-vA-Ubw"/>
-                <constraint firstItem="5Wu-cw-MJ8" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" constant="-1" id="nt1-hB-0iA"/>
-                <constraint firstItem="rpf-xq-Mg6" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="54" id="uWW-LQ-sUH"/>
+                <constraint firstItem="5Wu-cw-MJ8" firstAttribute="top" secondItem="rpf-xq-Mg6" secondAttribute="bottom" constant="1" id="c6J-vA-Ubw"/>
+                <constraint firstItem="5Wu-cw-MJ8" firstAttribute="centerX" secondItem="rpf-xq-Mg6" secondAttribute="centerX" id="iLW-qT-vEk"/>
+                <constraint firstItem="rpf-xq-Mg6" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="58" id="uWW-LQ-sUH"/>
             </constraints>
             <point key="canvasLocation" x="139.5" y="154"/>
         </customView>

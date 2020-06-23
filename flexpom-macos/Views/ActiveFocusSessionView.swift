@@ -19,7 +19,7 @@ class ActiveFocusSessionView: NSView {
     @IBOutlet weak var cloverLabel: NSTextField!
     
     let focusArcRadius: CGFloat = 50
-    let focusArcLineWidth: CGFloat = 10
+    let focusArcLineWidth: CGFloat = 5
     var focusArcDeg: CGFloat = 360
     
     let breakArcRadius: CGFloat = 60
@@ -39,6 +39,7 @@ class ActiveFocusSessionView: NSView {
     func commonInit() {
         Bundle.main.loadNibNamed(self.nibName, owner: self, topLevelObjects: nil)
         self.view.fixInView(self)
+        //self.focusTimeLabel.font = NSFont(name: "SF-Mono-Regular", size: 24)
     }
     
     override func draw(_ dirtyRect: NSRect) {
