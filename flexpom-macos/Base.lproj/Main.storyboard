@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -689,7 +689,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R9u-Zp-HUY">
-                                <rect key="frame" x="14" y="74" width="77" height="32"/>
+                                <rect key="frame" x="14" y="13" width="77" height="32"/>
                                 <buttonCell key="cell" type="push" title="Focus" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XO6-bD-0fN">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -706,16 +706,8 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ON6-NA-cWu">
-                                <rect key="frame" x="75" y="118" width="41" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="00:00" id="xTd-DS-G5g">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZn-PI-4J4">
-                                <rect key="frame" x="102" y="74" width="75" height="32"/>
+                                <rect key="frame" x="102" y="13" width="75" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KI5-yy-dPe">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -724,54 +716,23 @@
                                     <action selector="resetClicked:" target="XfG-lQ-9wD" id="kI6-0i-1oj"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nR2-mq-q5d" userLabel="Poms Label">
-                                <rect key="frame" x="18" y="32" width="57" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Poms:  0" id="SU8-wX-nfg">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hcX-zH-ol3" userLabel="Clovers Label">
-                                <rect key="frame" x="108" y="32" width="65" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Clovers: 0" id="moY-86-75O">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zv0-ZV-jcw">
-                                <rect key="frame" x="53" y="142" width="85" height="35"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="25:00" id="xfU-1w-AO2">
-                                    <font key="font" metaFont="system" size="30"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80A-co-inZ" customClass="ActiveFocusSessionView" customModule="flexpom_macos" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="45" width="191" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="uZn-PI-4J4" firstAttribute="trailing" secondItem="hcX-zH-ol3" secondAttribute="trailing" id="07b-5v-zaB"/>
-                            <constraint firstItem="ON6-NA-cWu" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="3Sk-EV-QeG"/>
-                            <constraint firstItem="nR2-mq-q5d" firstAttribute="top" secondItem="R9u-Zp-HUY" secondAttribute="bottom" constant="33" id="7Nx-Mu-E0Y"/>
-                            <constraint firstItem="Zv0-ZV-jcw" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="33" id="Hjg-ca-I3H"/>
                             <constraint firstItem="mzt-ox-CIR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="75" id="J6L-0O-3OD"/>
-                            <constraint firstItem="R9u-Zp-HUY" firstAttribute="top" secondItem="ON6-NA-cWu" secondAttribute="bottom" constant="16" id="Kcf-Lf-THq"/>
-                            <constraint firstItem="R9u-Zp-HUY" firstAttribute="leading" secondItem="nR2-mq-q5d" secondAttribute="leading" id="Kug-BR-fSz"/>
+                            <constraint firstItem="uZn-PI-4J4" firstAttribute="leading" secondItem="R9u-Zp-HUY" secondAttribute="trailing" constant="23" id="NaV-iB-AOj"/>
                             <constraint firstAttribute="trailing" secondItem="uZn-PI-4J4" secondAttribute="trailing" constant="20" symbolic="YES" id="al3-WG-aSP"/>
-                            <constraint firstItem="ON6-NA-cWu" firstAttribute="top" secondItem="Zv0-ZV-jcw" secondAttribute="bottom" constant="8" symbolic="YES" id="cz8-tL-CcH"/>
                             <constraint firstItem="R9u-Zp-HUY" firstAttribute="baseline" secondItem="uZn-PI-4J4" secondAttribute="baseline" id="eZw-xK-2jG"/>
-                            <constraint firstItem="Zv0-ZV-jcw" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ghd-Qm-Hup"/>
+                            <constraint firstAttribute="bottom" secondItem="R9u-Zp-HUY" secondAttribute="bottom" constant="20" id="gX6-SH-uef"/>
                             <constraint firstAttribute="trailing" secondItem="mzt-ox-CIR" secondAttribute="trailing" constant="-35" id="iWZ-WT-GsS"/>
-                            <constraint firstItem="nR2-mq-q5d" firstAttribute="baseline" secondItem="hcX-zH-ol3" secondAttribute="baseline" id="oKH-hc-4U2"/>
                             <constraint firstItem="R9u-Zp-HUY" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="qPc-oU-tjd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="breakLabel" destination="ON6-NA-cWu" id="LW5-7S-AS6"/>
-                        <outlet property="cloverLabel" destination="hcX-zH-ol3" id="fou-pC-mGl"/>
-                        <outlet property="focusLabel" destination="Zv0-ZV-jcw" id="yNP-t5-m7x"/>
-                        <outlet property="pomLabel" destination="nR2-mq-q5d" id="CCE-5t-2jA"/>
-                        <outlet property="timerButton" destination="R9u-Zp-HUY" id="SSd-rY-pBD"/>
+                        <outlet property="sessionView" destination="80A-co-inZ" id="g3x-8t-SR8"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

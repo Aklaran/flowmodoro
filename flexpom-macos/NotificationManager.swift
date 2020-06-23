@@ -8,46 +8,35 @@
 
 import Cocoa
 
-class NotificationManager : NSObject, PomodoroTimerDelegate, NSUserNotificationCenterDelegate {
-  let timer: PomodoroTimer!
-  let notificationCenter = NSUserNotificationCenter.default
-  
-  public init (timer: PomodoroTimer) {
-    self.timer = timer
-
-    super.init()
+class NotificationManager : NSObject, NSUserNotificationCenterDelegate {
+    static let shared = NotificationManager()
     
-    self.timer.delegates.append(self)
-    notificationCenter.delegate = self
-  }
-  
-  func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
-    return true
-  }
-  
-  func didReceiveUpdate(isBreak: Bool, focusTimeDisplay: String, breakTimeDisplay: String, numPoms: Int, numClovers: Int) {
-    if !isBreak && focusTimeDisplay == "00:01" {
-      showEndOfPomNotification()
-  } else if isBreak && breakTimeDisplay == "00:10" {
-      showEndOfBreakNotification()
+    let notificationCenter = NSUserNotificationCenter.default
+    
+    private override init() {
+        super.init()
+        notificationCenter.delegate = self
     }
-  }
-  
-  func showEndOfPomNotification() {
-    let notification = NSUserNotification()
-    notification.title = "Pom Completed"
-    notification.subtitle = "Consider taking a break!"
-    notification.soundName = NSUserNotificationDefaultSoundName
-
-    notificationCenter.deliver(notification)
-  }
-  
-  func showEndOfBreakNotification() {
-    let notification = NSUserNotification()
-    notification.title = "Break time's over!"
-    notification.subtitle = "Go kill it bro."
-    notification.soundName = NSUserNotificationDefaultSoundName
-
-    notificationCenter.deliver(notification)
-  }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+    
+    func showEndOfPomNotification() {
+        let notification = NSUserNotification()
+        notification.title = "Pom Completed"
+        notification.subtitle = "Consider taking a break!"
+        notification.soundName = NSUserNotificationDefaultSoundName
+        
+        notificationCenter.deliver(notification)
+    }
+    
+    func showEndOfBreakNotification() {
+        let notification = NSUserNotification()
+        notification.title = "Break time's over!"
+        notification.subtitle = "Go kill it bro."
+        notification.soundName = NSUserNotificationDefaultSoundName
+        
+        notificationCenter.deliver(notification)
+    }
 }

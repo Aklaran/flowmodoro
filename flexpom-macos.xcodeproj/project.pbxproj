@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3FB0FF243298C900657F66 /* EventMonitor.swift */; };
 		1E3FB1022432B0BC00657F66 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3FB1012432B0BC00657F66 /* NotificationManager.swift */; };
+		1E9A9F2024A2571E00646BF9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A9F1F24A2571E00646BF9 /* Constants.swift */; };
+		1E9A9F2224A25CE000646BF9 /* ActiveFocusSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */; };
+		1E9A9F2424A25CEB00646BF9 /* ActiveFocusSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */; };
+		1E9A9F2624A25FE000646BF9 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */; };
+		1EA5A17124A2486E00C5910B /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5A17024A2486E00C5910B /* FocusSession.swift */; };
+		1EA5A17324A2487B00C5910B /* TimeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5A17224A2487B00C5910B /* TimeBlock.swift */; };
 		1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA323A4226600FBF015 /* AppDelegate.swift */; };
 		1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA523A4226600FBF015 /* ViewController.swift */; };
 		1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA723A4226600FBF015 /* flexpom_macos.xcdatamodeld */; };
@@ -17,6 +23,7 @@
 		1EC8BFBA23A4226700FBF015 /* flexpom_macosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFB923A4226700FBF015 /* flexpom_macosTests.swift */; };
 		1EC8BFC523A4226700FBF015 /* flexpom_macosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFC423A4226700FBF015 /* flexpom_macosUITests.swift */; };
 		1EC8BFD423A4229C00FBF015 /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */; };
+		1EDECCFC24A2520F00265022 /* ActiveFocusSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDECCFB24A2520F00265022 /* ActiveFocusSessionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +46,12 @@
 /* Begin PBXFileReference section */
 		1E3FB0FF243298C900657F66 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		1E3FB1012432B0BC00657F66 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = "flexpom-macos/NotificationManager.swift"; sourceTree = SOURCE_ROOT; };
+		1E9A9F1F24A2571E00646BF9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFocusSessionView.swift; sourceTree = "<group>"; };
+		1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveFocusSessionView.xib; sourceTree = "<group>"; };
+		1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		1EA5A17024A2486E00C5910B /* FocusSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSession.swift; sourceTree = "<group>"; };
+		1EA5A17224A2487B00C5910B /* TimeBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBlock.swift; sourceTree = "<group>"; };
 		1EC8BFA023A4226600FBF015 /* flexpom-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flexpom-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC8BFA323A4226600FBF015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC8BFA523A4226600FBF015 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +67,7 @@
 		1EC8BFC423A4226700FBF015 /* flexpom_macosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flexpom_macosUITests.swift; sourceTree = "<group>"; };
 		1EC8BFC623A4226700FBF015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
+		1EDECCFB24A2520F00265022 /* ActiveFocusSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFocusSessionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EA5A16824A1B36000C5910B /* Timers */ = {
+			isa = PBXGroup;
+			children = (
+				1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */,
+			);
+			path = Timers;
+			sourceTree = "<group>";
+		};
+		1EA5A16924A1B36C00C5910B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1EC8BFA523A4226600FBF015 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1EA5A16A24A1B37800C5910B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1EDECCFB24A2520F00265022 /* ActiveFocusSessionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1EA5A16B24A1B38000C5910B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */,
+				1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */,
+				1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1EC8BF9723A4226600FBF015 = {
 			isa = PBXGroup;
 			children = (
@@ -104,15 +152,20 @@
 		1EC8BFA223A4226600FBF015 /* flexpom-macos */ = {
 			isa = PBXGroup;
 			children = (
+				1EA5A16824A1B36000C5910B /* Timers */,
 				1EC8BFD223A4227600FBF015 /* Models */,
+				1EA5A16A24A1B37800C5910B /* ViewModels */,
+				1EA5A16924A1B36C00C5910B /* ViewControllers */,
+				1EA5A16B24A1B38000C5910B /* Views */,
 				1EC8BFA323A4226600FBF015 /* AppDelegate.swift */,
+				1E3FB0FF243298C900657F66 /* EventMonitor.swift */,
 				1E3FB1012432B0BC00657F66 /* NotificationManager.swift */,
-				1EC8BFA523A4226600FBF015 /* ViewController.swift */,
 				1EC8BFAA23A4226700FBF015 /* Assets.xcassets */,
 				1EC8BFAC23A4226700FBF015 /* Main.storyboard */,
 				1EC8BFAF23A4226700FBF015 /* Info.plist */,
 				1EC8BFB023A4226700FBF015 /* flexpom_macos.entitlements */,
 				1EC8BFA723A4226600FBF015 /* flexpom_macos.xcdatamodeld */,
+				1E9A9F1F24A2571E00646BF9 /* Constants.swift */,
 			);
 			path = "flexpom-macos";
 			sourceTree = "<group>";
@@ -138,8 +191,8 @@
 		1EC8BFD223A4227600FBF015 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */,
-				1E3FB0FF243298C900657F66 /* EventMonitor.swift */,
+				1EA5A17024A2486E00C5910B /* FocusSession.swift */,
+				1EA5A17224A2487B00C5910B /* TimeBlock.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +303,7 @@
 			files = (
 				1EC8BFAB23A4226700FBF015 /* Assets.xcassets in Resources */,
 				1EC8BFAE23A4226700FBF015 /* Main.storyboard in Resources */,
+				1E9A9F2424A25CEB00646BF9 /* ActiveFocusSessionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +328,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA5A17124A2486E00C5910B /* FocusSession.swift in Sources */,
 				1E3FB1022432B0BC00657F66 /* NotificationManager.swift in Sources */,
+				1EDECCFC24A2520F00265022 /* ActiveFocusSessionViewModel.swift in Sources */,
 				1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */,
 				1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */,
+				1E9A9F2024A2571E00646BF9 /* Constants.swift in Sources */,
+				1EA5A17324A2487B00C5910B /* TimeBlock.swift in Sources */,
 				1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */,
 				1EC8BFD423A4229C00FBF015 /* PomodoroTimer.swift in Sources */,
+				1E9A9F2224A25CE000646BF9 /* ActiveFocusSessionView.swift in Sources */,
+				1E9A9F2624A25FE000646BF9 /* ViewExtensions.swift in Sources */,
 				1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
