@@ -8,7 +8,9 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ActiveFocusSessionView" customModule="flexpom_macos" customModuleProvider="target">
             <connections>
                 <outlet property="breakTimeLabel" destination="5Wu-cw-MJ8" id="SK1-ZU-aiU"/>
+                <outlet property="cloverLabel" destination="SrZ-EV-oBd" id="7AA-zG-FkJ"/>
                 <outlet property="focusTimeLabel" destination="rpf-xq-Mg6" id="QPq-CB-zig"/>
+                <outlet property="pomLabel" destination="e6Q-hW-k4u" id="CDA-wR-7hG"/>
                 <outlet property="view" destination="c22-O7-iKe" id="3KY-HK-nl1"/>
             </connections>
         </customObject>
@@ -18,16 +20,32 @@
             <rect key="frame" x="0.0" y="0.0" width="191" height="210"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e6Q-hW-k4u">
+                    <rect key="frame" x="18" y="0.0" width="54" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Poms: 0" id="dFo-Nf-hIi">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SrZ-EV-oBd">
+                    <rect key="frame" x="108" y="0.0" width="65" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Clovers: 0" id="7b9-ff-AjD">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Wu-cw-MJ8">
-                    <rect key="frame" x="79" y="89" width="33" height="16"/>
+                    <rect key="frame" x="78" y="107" width="33" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="0:00" id="DeZ-Hi-QDj">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-xq-Mg6">
-                    <rect key="frame" x="76" y="122" width="40" height="16"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-xq-Mg6">
+                    <rect key="frame" x="75" y="140" width="40" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="25:00" id="06A-hH-HPU">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -36,10 +54,14 @@
                 </textField>
             </subviews>
             <constraints>
+                <constraint firstItem="e6Q-hW-k4u" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="0a6-Rp-Tzs"/>
+                <constraint firstAttribute="bottom" secondItem="e6Q-hW-k4u" secondAttribute="bottom" id="Gak-wl-2eO"/>
                 <constraint firstItem="rpf-xq-Mg6" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="KeK-Gn-zj6"/>
+                <constraint firstAttribute="trailing" secondItem="SrZ-EV-oBd" secondAttribute="trailing" constant="20" id="M1O-9B-Lis"/>
+                <constraint firstItem="e6Q-hW-k4u" firstAttribute="firstBaseline" secondItem="SrZ-EV-oBd" secondAttribute="firstBaseline" id="Pk6-Kt-9Jm"/>
                 <constraint firstItem="5Wu-cw-MJ8" firstAttribute="top" secondItem="rpf-xq-Mg6" secondAttribute="bottom" constant="17" id="c6J-vA-Ubw"/>
-                <constraint firstItem="5Wu-cw-MJ8" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="nt1-hB-0iA"/>
-                <constraint firstItem="rpf-xq-Mg6" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="72" id="uWW-LQ-sUH"/>
+                <constraint firstItem="5Wu-cw-MJ8" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" constant="-1" id="nt1-hB-0iA"/>
+                <constraint firstItem="rpf-xq-Mg6" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="54" id="uWW-LQ-sUH"/>
             </constraints>
             <point key="canvasLocation" x="139.5" y="154"/>
         </customView>

@@ -30,8 +30,7 @@ class ActiveFocusSessionViewModel {
     }
         
     func stopTiming() {
-        // TODO: save the model to persistent store
-        self.model.commitBlock()
+        // TODO: save the model to persistent store & scrap it
         self.model.reset()
         PomodoroTimer.shared.removeObserver(self.model)
     }
@@ -42,10 +41,14 @@ class ActiveFocusSessionViewModel {
         let focusTimeString = self.formatFocusString(counter: session.currentFocusCounter)
         let breakTimeString = self.formatBreakString(counter: session.breakCounter)
         let focusArcDeg = self.calculateFocusArc(currentCount: session.currentFocusCounter, totalCount: session.pomodoroTimeSec)
+        let breakArcDeg = self.calculateBreakArc(currentCount: session.breakCounter, totalCount: session.pomodoroTimeSec)
         
         view.focusTimeLabel.stringValue = focusTimeString
         view.breakTimeLabel.stringValue = breakTimeString
         view.focusArcDeg = focusArcDeg
+        view.breakArcDeg = breakArcDeg
+        view.pomLabel.stringValue = "Poms: \(session.numPoms)"
+        view.cloverLabel.stringValue = "Clovers: \(session.numClovers)"
         
         view.needsDisplay = true
     }
@@ -85,6 +88,11 @@ class ActiveFocusSessionViewModel {
         let elapsedCount = totalCount - currentCount
         let percentRemaining: Double = Double(elapsedCount) / Double(totalCount)
         return CGFloat(percentRemaining * 360)
+    }
+    
+    private func calculateBreakArc(currentCount: Int, totalCount: Int) -> CGFloat {
+        let percentFilled: Double = Double(currentCount) / Double(totalCount)
+        return CGFloat(percentFilled * 360)
     }
 }
 

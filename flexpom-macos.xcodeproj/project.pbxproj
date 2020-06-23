@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1E3FB0FF243298C900657F66 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
-		1E3FB1012432B0BC00657F66 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = "flexpom-macos/NotificationManager.swift"; sourceTree = SOURCE_ROOT; };
+		1E3FB1012432B0BC00657F66 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = "flexpom-macos/Singletons/NotificationManager.swift"; sourceTree = SOURCE_ROOT; };
 		1E9A9F1F24A2571E00646BF9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFocusSessionView.swift; sourceTree = "<group>"; };
 		1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveFocusSessionView.xib; sourceTree = "<group>"; };
@@ -95,12 +95,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1EA5A16824A1B36000C5910B /* Timers */ = {
+		1E9A9F2724A27CC100646BF9 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
+				1EC8BFA323A4226600FBF015 /* AppDelegate.swift */,
 				1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */,
+				1E3FB0FF243298C900657F66 /* EventMonitor.swift */,
+				1E3FB1012432B0BC00657F66 /* NotificationManager.swift */,
+				1E9A9F1F24A2571E00646BF9 /* Constants.swift */,
 			);
-			path = Timers;
+			path = Singletons;
 			sourceTree = "<group>";
 		};
 		1EA5A16924A1B36C00C5910B /* ViewControllers */ = {
@@ -122,6 +126,7 @@
 		1EA5A16B24A1B38000C5910B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1EC8BFAC23A4226700FBF015 /* Main.storyboard */,
 				1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */,
 				1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */,
 				1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */,
@@ -152,20 +157,15 @@
 		1EC8BFA223A4226600FBF015 /* flexpom-macos */ = {
 			isa = PBXGroup;
 			children = (
-				1EA5A16824A1B36000C5910B /* Timers */,
+				1E9A9F2724A27CC100646BF9 /* Singletons */,
 				1EC8BFD223A4227600FBF015 /* Models */,
 				1EA5A16A24A1B37800C5910B /* ViewModels */,
 				1EA5A16924A1B36C00C5910B /* ViewControllers */,
 				1EA5A16B24A1B38000C5910B /* Views */,
-				1EC8BFA323A4226600FBF015 /* AppDelegate.swift */,
-				1E3FB0FF243298C900657F66 /* EventMonitor.swift */,
-				1E3FB1012432B0BC00657F66 /* NotificationManager.swift */,
 				1EC8BFAA23A4226700FBF015 /* Assets.xcassets */,
-				1EC8BFAC23A4226700FBF015 /* Main.storyboard */,
 				1EC8BFAF23A4226700FBF015 /* Info.plist */,
 				1EC8BFB023A4226700FBF015 /* flexpom_macos.entitlements */,
 				1EC8BFA723A4226600FBF015 /* flexpom_macos.xcdatamodeld */,
-				1E9A9F1F24A2571E00646BF9 /* Constants.swift */,
 			);
 			path = "flexpom-macos";
 			sourceTree = "<group>";

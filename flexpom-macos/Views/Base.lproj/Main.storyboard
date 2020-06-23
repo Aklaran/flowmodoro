@@ -688,16 +688,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="191" height="210"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R9u-Zp-HUY">
-                                <rect key="frame" x="14" y="13" width="77" height="32"/>
-                                <buttonCell key="cell" type="push" title="Focus" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XO6-bD-0fN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="timerClicked:" target="XfG-lQ-9wD" id="kSD-W1-BOD"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mzt-ox-CIR">
                                 <rect key="frame" x="224" y="119" width="4" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" id="4po-53-mMh">
@@ -720,6 +710,16 @@
                                 <rect key="frame" x="0.0" y="45" width="191" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R9u-Zp-HUY">
+                                <rect key="frame" x="14" y="13" width="77" height="32"/>
+                                <buttonCell key="cell" type="push" title="Focus" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XO6-bD-0fN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="timerClicked:" target="XfG-lQ-9wD" id="kSD-W1-BOD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="mzt-ox-CIR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="75" id="J6L-0O-3OD"/>

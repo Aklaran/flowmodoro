@@ -41,7 +41,7 @@ class FocusSession {
 
     private var timeBlocks = [TimeBlock]() {
         didSet {
-            print(timeBlocks)
+            print(timeBlocks.count)
         }
     }
     private var currentTimeBlock: TimeBlock?
@@ -54,6 +54,8 @@ class FocusSession {
     }
     
     func reset() {
+        self.commitBlock()
+        
         self.currentFocusCounter = 0
         self.totalFocusCounter = 0
         self.breakCounter = 0
@@ -65,7 +67,16 @@ class FocusSession {
     }
     
     func beginBlock() {
+        if self.currentTimeBlock != nil {
+            self.commitBlock()
+        }
+        
         self.isBreak = !self.isBreak
+        
+        if self.isBreak {
+            self.currentFocusCounter = 0
+        }
+        
         self.currentTimeBlock = TimeBlock(startTime: Date(), endTime: nil, isBreak: self.isBreak)
         
         print("\(isBreak ? "Break" : "Focus") block initiated at \(String(describing: currentTimeBlock?.startTime))")
