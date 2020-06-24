@@ -11,22 +11,18 @@ import Cocoa
 
 class ActiveFocusSessionViewModel {
     let model: FocusSession
-    weak var view: ActiveFocusSessionView?
+    weak var delegate: ActiveFocusSessionViewModelDelegate?
     
     init(model: FocusSession, view: ActiveFocusSessionView?) {
         self.model = model
         self.model.delegate = self
-        self.view = view
     }
     
     // Model commands
     
-    func startTiming(completion: ((String) -> ())?) {
+    func startTiming() {
         self.model.beginBlock()
         PomodoroTimer.shared.addObserver(self.model)
-        
-        let nextTimingAction = self.model.isBreak ? "Focus" : "Break"
-        completion?(nextTimingAction)
     }
         
     func stopTiming() {
@@ -49,6 +45,7 @@ class ActiveFocusSessionViewModel {
         view.breakArcDeg = breakArcDeg
         view.pomLabel.stringValue = "Poms: \(session.numPoms)"
         view.cloverLabel.stringValue = "Clovers: \(session.numClovers)"
+        view.focusButton.title = session.isBreak ? "Focus" : "Break"
         
         view.needsDisplay = true
     }
@@ -98,24 +95,14 @@ class ActiveFocusSessionViewModel {
 
 extension ActiveFocusSessionViewModel: ActiveFocusSessionDelegate {
     func focusSessionDidUpdateState(_ focusSession: FocusSession) {
-        if let view = self.view {
-            self.configure(view, toShow: focusSession)
-        }
-        
-        let shouldNotifyEndOfPom = !focusSession.isBreak &&
-            (focusSession.pomodoroTimeSec - focusSession.currentFocusCounter == Constants.END_POM_NOTIF_BUFFER_S)
-        let shouldNotifyEndOfBreak = focusSession.isBreak && focusSession.breakCounter == Constants.END_BREAK_NOTIF_BUFFER_S
-        
-        if shouldNotifyEndOfPom {
-            NotificationManager.shared.showEndOfPomNotification()
-        }
-        
-        if shouldNotifyEndOfBreak {
-            NotificationManager.shared.showEndOfBreakNotification()
-        }
+        self.delegate?.viewModelHasNewData(self, from: focusSession)
     }
     
-    func focusSessionDidTerminate(_ focusSesssion: FocusSession) {
+    func focusSessionDidTerminate(_ focusSession: FocusSession) {
         self.stopTiming()
     }
+}
+
+protocol ActiveFocusSessionViewModelDelegate: class {
+    func viewModelHasNewData(_ viewModel: ActiveFocusSessionViewModel, from focusSession: FocusSession)
 }

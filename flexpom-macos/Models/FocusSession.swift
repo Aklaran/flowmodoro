@@ -54,8 +54,10 @@ class FocusSession {
     }
     
     func reset() {
+        // save the current block before we wipe the slate
         self.commitBlock()
         
+        // wipe the slate
         self.currentFocusCounter = 0
         self.totalFocusCounter = 0
         self.breakCounter = 0

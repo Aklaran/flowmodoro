@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E27E8FF24A3E58B002B81CE /* StatusBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27E8FE24A3E58B002B81CE /* StatusBarContainer.swift */; };
+		1E27E90124A3EEEA002B81CE /* TransitionDecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27E90024A3EEEA002B81CE /* TransitionDecisionViewController.swift */; };
+		1E27E90324A3EF55002B81CE /* TransitionDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27E90224A3EF55002B81CE /* TransitionDecisionView.swift */; };
+		1E27E90524A3EF62002B81CE /* TransitionDecisionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E27E90424A3EF62002B81CE /* TransitionDecisionView.xib */; };
 		1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3FB0FF243298C900657F66 /* EventMonitor.swift */; };
 		1E3FB1022432B0BC00657F66 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3FB1012432B0BC00657F66 /* NotificationManager.swift */; };
 		1E9A9F2024A2571E00646BF9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A9F1F24A2571E00646BF9 /* Constants.swift */; };
@@ -16,7 +20,7 @@
 		1EA5A17124A2486E00C5910B /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5A17024A2486E00C5910B /* FocusSession.swift */; };
 		1EA5A17324A2487B00C5910B /* TimeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5A17224A2487B00C5910B /* TimeBlock.swift */; };
 		1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA323A4226600FBF015 /* AppDelegate.swift */; };
-		1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA523A4226600FBF015 /* ViewController.swift */; };
+		1EC8BFA623A4226600FBF015 /* ActiveFocusSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA523A4226600FBF015 /* ActiveFocusSessionViewController.swift */; };
 		1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA723A4226600FBF015 /* flexpom_macos.xcdatamodeld */; };
 		1EC8BFAB23A4226700FBF015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8BFAA23A4226700FBF015 /* Assets.xcassets */; };
 		1EC8BFAE23A4226700FBF015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8BFAC23A4226700FBF015 /* Main.storyboard */; };
@@ -44,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E27E8FE24A3E58B002B81CE /* StatusBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarContainer.swift; sourceTree = "<group>"; };
+		1E27E90024A3EEEA002B81CE /* TransitionDecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDecisionViewController.swift; sourceTree = "<group>"; };
+		1E27E90224A3EF55002B81CE /* TransitionDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDecisionView.swift; sourceTree = "<group>"; };
+		1E27E90424A3EF62002B81CE /* TransitionDecisionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionDecisionView.xib; sourceTree = "<group>"; };
 		1E3FB0FF243298C900657F66 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		1E3FB1012432B0BC00657F66 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = "flexpom-macos/Singletons/NotificationManager.swift"; sourceTree = SOURCE_ROOT; };
 		1E9A9F1F24A2571E00646BF9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -54,7 +62,7 @@
 		1EA5A17224A2487B00C5910B /* TimeBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBlock.swift; sourceTree = "<group>"; };
 		1EC8BFA023A4226600FBF015 /* flexpom-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flexpom-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC8BFA323A4226600FBF015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1EC8BFA523A4226600FBF015 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1EC8BFA523A4226600FBF015 /* ActiveFocusSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFocusSessionViewController.swift; sourceTree = "<group>"; };
 		1EC8BFA823A4226600FBF015 /* flexpom_macos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = flexpom_macos.xcdatamodel; sourceTree = "<group>"; };
 		1EC8BFAA23A4226700FBF015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EC8BFAD23A4226700FBF015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 				1E3FB0FF243298C900657F66 /* EventMonitor.swift */,
 				1E3FB1012432B0BC00657F66 /* NotificationManager.swift */,
 				1E9A9F1F24A2571E00646BF9 /* Constants.swift */,
+				1E27E8FE24A3E58B002B81CE /* StatusBarContainer.swift */,
 			);
 			path = Singletons;
 			sourceTree = "<group>";
@@ -110,7 +119,8 @@
 		1EA5A16924A1B36C00C5910B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1EC8BFA523A4226600FBF015 /* ViewController.swift */,
+				1EC8BFA523A4226600FBF015 /* ActiveFocusSessionViewController.swift */,
+				1E27E90024A3EEEA002B81CE /* TransitionDecisionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -130,6 +140,8 @@
 				1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */,
 				1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */,
 				1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */,
+				1E27E90224A3EF55002B81CE /* TransitionDecisionView.swift */,
+				1E27E90424A3EF62002B81CE /* TransitionDecisionView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +316,7 @@
 				1EC8BFAB23A4226700FBF015 /* Assets.xcassets in Resources */,
 				1EC8BFAE23A4226700FBF015 /* Main.storyboard in Resources */,
 				1E9A9F2424A25CEB00646BF9 /* ActiveFocusSessionView.xib in Resources */,
+				1E27E90524A3EF62002B81CE /* TransitionDecisionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,14 +343,17 @@
 			files = (
 				1EA5A17124A2486E00C5910B /* FocusSession.swift in Sources */,
 				1E3FB1022432B0BC00657F66 /* NotificationManager.swift in Sources */,
+				1E27E90324A3EF55002B81CE /* TransitionDecisionView.swift in Sources */,
 				1EDECCFC24A2520F00265022 /* ActiveFocusSessionViewModel.swift in Sources */,
 				1EC8BFA923A4226600FBF015 /* flexpom_macos.xcdatamodeld in Sources */,
 				1E3FB100243298C900657F66 /* EventMonitor.swift in Sources */,
 				1E9A9F2024A2571E00646BF9 /* Constants.swift in Sources */,
 				1EA5A17324A2487B00C5910B /* TimeBlock.swift in Sources */,
-				1EC8BFA623A4226600FBF015 /* ViewController.swift in Sources */,
+				1EC8BFA623A4226600FBF015 /* ActiveFocusSessionViewController.swift in Sources */,
 				1EC8BFD423A4229C00FBF015 /* PomodoroTimer.swift in Sources */,
 				1E9A9F2224A25CE000646BF9 /* ActiveFocusSessionView.swift in Sources */,
+				1E27E8FF24A3E58B002B81CE /* StatusBarContainer.swift in Sources */,
+				1E27E90124A3EEEA002B81CE /* TransitionDecisionViewController.swift in Sources */,
 				1E9A9F2624A25FE000646BF9 /* ViewExtensions.swift in Sources */,
 				1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */,
 			);

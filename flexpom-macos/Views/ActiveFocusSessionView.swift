@@ -17,6 +17,7 @@ class ActiveFocusSessionView: NSView {
     @IBOutlet weak var breakTimeLabel: NSTextField!
     @IBOutlet weak var pomLabel: NSTextField!
     @IBOutlet weak var cloverLabel: NSTextField!
+    @IBOutlet weak var focusButton: NSButton!
     
     let focusArcRadius: CGFloat = 50
     let focusArcLineWidth: CGFloat = 5
@@ -39,7 +40,6 @@ class ActiveFocusSessionView: NSView {
     func commonInit() {
         Bundle.main.loadNibNamed(self.nibName, owner: self, topLevelObjects: nil)
         self.view.fixInView(self)
-        //self.focusTimeLabel.font = NSFont(name: "SF-Mono-Regular", size: 24)
     }
     
     override func draw(_ dirtyRect: NSRect) {

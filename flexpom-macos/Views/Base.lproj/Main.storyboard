@@ -680,56 +680,19 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Active Focus Session View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="XfG-lQ-9wD" customClass="ViewController" customModule="flexpom_macos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActiveFocusSessionViewController" id="XfG-lQ-9wD" customClass="ActiveFocusSessionViewController" customModule="flexpom_macos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="191" height="210"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mzt-ox-CIR">
-                                <rect key="frame" x="224" y="119" width="4" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" id="4po-53-mMh">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uZn-PI-4J4">
-                                <rect key="frame" x="102" y="13" width="75" height="32"/>
-                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KI5-yy-dPe">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="resetClicked:" target="XfG-lQ-9wD" id="kI6-0i-1oj"/>
-                                </connections>
-                            </button>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80A-co-inZ" customClass="ActiveFocusSessionView" customModule="flexpom_macos" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="45" width="191" height="165"/>
+                                <rect key="frame" x="0.0" y="0.0" width="191" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R9u-Zp-HUY">
-                                <rect key="frame" x="14" y="13" width="77" height="32"/>
-                                <buttonCell key="cell" type="push" title="Focus" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XO6-bD-0fN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="timerClicked:" target="XfG-lQ-9wD" id="kSD-W1-BOD"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="mzt-ox-CIR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="75" id="J6L-0O-3OD"/>
-                            <constraint firstItem="uZn-PI-4J4" firstAttribute="leading" secondItem="R9u-Zp-HUY" secondAttribute="trailing" constant="23" id="NaV-iB-AOj"/>
-                            <constraint firstAttribute="trailing" secondItem="uZn-PI-4J4" secondAttribute="trailing" constant="20" symbolic="YES" id="al3-WG-aSP"/>
-                            <constraint firstItem="R9u-Zp-HUY" firstAttribute="baseline" secondItem="uZn-PI-4J4" secondAttribute="baseline" id="eZw-xK-2jG"/>
-                            <constraint firstAttribute="bottom" secondItem="R9u-Zp-HUY" secondAttribute="bottom" constant="20" id="gX6-SH-uef"/>
-                            <constraint firstAttribute="trailing" secondItem="mzt-ox-CIR" secondAttribute="trailing" constant="-35" id="iWZ-WT-GsS"/>
-                            <constraint firstItem="R9u-Zp-HUY" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="qPc-oU-tjd"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="sessionView" destination="80A-co-inZ" id="g3x-8t-SR8"/>
@@ -737,7 +700,29 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222.5" y="172"/>
+            <point key="canvasLocation" x="-68" y="293"/>
+        </scene>
+        <!--Transition Decision View Controller-->
+        <scene sceneID="Lhz-1w-xOW">
+            <objects>
+                <viewController storyboardIdentifier="TransitionDecisionViewController" id="t2A-4h-YD9" customClass="TransitionDecisionViewController" customModule="flexpom_macos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="NIF-gz-dlH">
+                        <rect key="frame" x="0.0" y="0.0" width="191" height="64"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NgF-hM-8sw" customClass="TransitionDecisionView" customModule="flexpom_macos" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="191" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="transitionView" destination="NgF-hM-8sw" id="G7A-wF-3ys"/>
+                    </connections>
+                </viewController>
+                <customObject id="dLw-zA-1qf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217.5" y="220"/>
         </scene>
     </scenes>
 </document>

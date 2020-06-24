@@ -10,81 +10,13 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
-    var statusBarItem: NSStatusItem!
-    var statusBarMenu: NSMenu!
-    
-    var eventMonitor: EventMonitor?
-    
-    let popover = NSPopover()
-    
+    var container: StatusBarContainer!
     var notificationManager: NotificationManager!
-    
     let timer = PomodoroTimer.shared
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Initialize status bar item
-        statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        
-        let image = NSImage(named: "RippedTimer")
-        image?.isTemplate = true
-        statusBarItem.button?.image = image
-        
-        statusBarItem.button?.action = #selector(statusBarButtonClicked(_:))
-        statusBarItem.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
-        
-        // initialize right-click menu
-        statusBarMenu = NSMenu(title: "Status Bar Menu")
-        statusBarMenu.delegate = self
-        statusBarMenu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
-        
-        popover.contentViewController = ViewController.freshController()
-        
-        notificationManager = NotificationManager.shared
-        
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self]
-            event in
-            if let strongSelf = self, strongSelf.popover.isShown {
-                strongSelf.closePopover(sender: event)
-            }
-        }
-        
+        self.container = StatusBarContainer.shared
         timer.start()
-    }
-    
-    @objc func statusBarButtonClicked(_ sender: NSStatusBarButton) {
-        let event = NSApp.currentEvent!
-        if event.type == NSEvent.EventType.rightMouseUp {
-            statusBarItem.menu = statusBarMenu // add menu to button...
-            statusBarItem.button?.performClick(nil) // ...and click it
-        } else {
-            togglePopover(self)
-        }
-    }
-    
-    func togglePopover(_ sender: Any?) {
-        if popover.isShown {
-            closePopover(sender: sender)
-        } else {
-            showPopover(sender: sender)
-        }
-    }
-    
-    func showPopover(sender: Any?) {
-        if let button = statusBarItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-        }
-        
-        eventMonitor?.start()
-    }
-    
-    func closePopover(sender: Any?) {
-        popover.performClose(sender)
-        
-        eventMonitor?.stop()
-    }
-    
-    @objc func menuDidClose(_ menu: NSMenu) {
-        statusBarItem.menu = nil // remove menu so button displays default behavior
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
