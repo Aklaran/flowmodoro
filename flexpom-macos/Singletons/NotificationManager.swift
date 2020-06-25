@@ -7,36 +7,48 @@
 //
 
 import Cocoa
+import UserNotifications
 
-class NotificationManager : NSObject, NSUserNotificationCenterDelegate {
+class NotificationManager : NSObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationManager()
     
-    let notificationCenter = NSUserNotificationCenter.default
+    let notificationCenter = UNUserNotificationCenter.current()
     
     private override init() {
         super.init()
-        notificationCenter.delegate = self
-    }
-    
-    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
-        return true
+        self.notificationCenter.delegate = self
+        self.notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            guard error == nil else {
+                print("\(String(describing: error?.localizedDescription))")
+                return
+            }
+            print("Notification authorization granted: \(granted)")
+        }
     }
     
     func showEndOfPomNotification() {
-        let notification = NSUserNotification()
+        let notification = UNMutableNotificationContent()
         notification.title = "Pom Completed"
         notification.subtitle = "Consider taking a break!"
-        notification.soundName = NSUserNotificationDefaultSoundName
+        // FIXME: This sound won't play!
+        notification.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "eventually.m4r"))
         
-        notificationCenter.deliver(notification)
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString,
+                    content: notification, trigger: nil)
+        
+        self.notificationCenter.add(request)
     }
     
     func showEndOfBreakNotification() {
-        let notification = NSUserNotification()
+        let notification = UNMutableNotificationContent()
         notification.title = "Break time's over!"
         notification.subtitle = "Go kill it bro."
-        notification.soundName = NSUserNotificationDefaultSoundName
+        notification.sound = .default
         
-        notificationCenter.deliver(notification)
-    }
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString,
+                    content: notification, trigger: nil)
+        
+        self.notificationCenter.add(request)    }
 }

@@ -94,7 +94,7 @@ class FocusSession {
         
         self.currentTimeBlock = TimeBlock(startTime: Date(), endTime: nil, isBreak: self.isBreak)
         
-        print("\(isBreak ? "Break" : "Focus") block initiated at \(String(describing: currentTimeBlock?.startTime))")
+        print("\(isBreak ? "Break" : "Focus") block initiated")
     }
     
     func commitBlock() {
@@ -103,9 +103,10 @@ class FocusSession {
             return
         }
         
+        // FIXME: Focus time blocks committed in the transition decision period will erroneously have longer times
         currentTimeBlock.endTime = Date()
         self.timeBlocks.append(currentTimeBlock)
-        print("\(currentTimeBlock.isBreak ? "Break" : "Focus") block committed at \(String(describing: currentTimeBlock.endTime))")
+        print("\(currentTimeBlock.duration) second \(currentTimeBlock.isBreak ? "Break" : "Focus") block committed")
         
         self.currentTimeBlock = nil
     }

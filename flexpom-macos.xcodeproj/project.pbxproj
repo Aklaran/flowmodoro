@@ -28,6 +28,7 @@
 		1EC8BFC523A4226700FBF015 /* flexpom_macosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFC423A4226700FBF015 /* flexpom_macosUITests.swift */; };
 		1EC8BFD423A4229C00FBF015 /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */; };
 		1EDECCFC24A2520F00265022 /* ActiveFocusSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDECCFB24A2520F00265022 /* ActiveFocusSessionViewModel.swift */; };
+		1EE8F7BC24A46BD10085E628 /* eventually.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 1EE8F7BB24A46BD10085E628 /* eventually.m4r */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		1EC8BFC623A4226700FBF015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EC8BFD323A4229C00FBF015 /* PomodoroTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
 		1EDECCFB24A2520F00265022 /* ActiveFocusSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFocusSessionViewModel.swift; sourceTree = "<group>"; };
+		1EE8F7BB24A46BD10085E628 /* eventually.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = eventually.m4r; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				1EA5A16A24A1B37800C5910B /* ViewModels */,
 				1EA5A16924A1B36C00C5910B /* ViewControllers */,
 				1EA5A16B24A1B38000C5910B /* Views */,
+				1EE8F7B224A467960085E628 /* Sounds */,
 				1EC8BFAA23A4226700FBF015 /* Assets.xcassets */,
 				1EC8BFAF23A4226700FBF015 /* Info.plist */,
 				1EC8BFB023A4226700FBF015 /* flexpom_macos.entitlements */,
@@ -207,6 +210,14 @@
 				1EA5A17224A2487B00C5910B /* TimeBlock.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1EE8F7B224A467960085E628 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1EE8F7BB24A46BD10085E628 /* eventually.m4r */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC8BFAB23A4226700FBF015 /* Assets.xcassets in Resources */,
+				1EE8F7BC24A46BD10085E628 /* eventually.m4r in Resources */,
 				1EC8BFAE23A4226700FBF015 /* Main.storyboard in Resources */,
 				1E9A9F2424A25CEB00646BF9 /* ActiveFocusSessionView.xib in Resources */,
 				1E27E90524A3EF62002B81CE /* TransitionDecisionView.xib in Resources */,

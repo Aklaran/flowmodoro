@@ -12,7 +12,6 @@
                 <outlet property="focusButton" destination="eft-ZQ-iK1" id="0fG-MZ-Jrr"/>
                 <outlet property="focusTimeLabel" destination="rpf-xq-Mg6" id="QPq-CB-zig"/>
                 <outlet property="pomLabel" destination="e6Q-hW-k4u" id="CDA-wR-7hG"/>
-                <outlet property="resetButton" destination="6m2-dg-ggr" id="Z6H-8e-yf1"/>
                 <outlet property="view" destination="c22-O7-iKe" id="3KY-HK-nl1"/>
             </connections>
         </customObject>

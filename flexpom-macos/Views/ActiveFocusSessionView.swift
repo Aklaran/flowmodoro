@@ -19,7 +19,7 @@ class ActiveFocusSessionView: NSView {
     @IBOutlet weak var cloverLabel: NSTextField!
     @IBOutlet weak var focusButton: NSButton!
     
-    let focusArcRadius: CGFloat = 50
+    let focusArcRadius: CGFloat = 60
     let focusArcLineWidth: CGFloat = 5
     var focusArcDeg: CGFloat = 360
     
@@ -46,12 +46,11 @@ class ActiveFocusSessionView: NSView {
         super.draw(dirtyRect)
         
         self.drawFocusArc()
-        self.drawBreakArc()
-
+        // self.drawBreakArc()
     }
     
     private func drawFocusArc() {
-        self.drawArc(center: self.view.getCenterPoint(),
+        self.drawArc(center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
                      radius: self.focusArcRadius,
                      lineWidth: self.focusArcLineWidth,
                      startAngle: self.startAngleDeg,

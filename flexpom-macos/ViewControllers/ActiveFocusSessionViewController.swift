@@ -80,11 +80,18 @@ extension ActiveFocusSessionViewController: ActiveFocusSessionViewModelDelegate 
         viewModel.configure(self.sessionView, toShow: focusSession)
         
         let isEndOfPom = !focusSession.isBreak && focusSession.currentFocusCounter == focusSession.pomodoroTimeSec
+        
+        let isAlmostEndOfBreak = focusSession.isBreak && focusSession.breakCounter == Constants.END_BREAK_NOTIF_BUFFER_S
 
         if isEndOfPom {
             self.viewModel.pauseTiming()
-            
+            NotificationManager.shared.showEndOfPomNotification()
             self.segueToTransitionVC()
+        }
+        
+        if isAlmostEndOfBreak {
+            NotificationManager.shared.showEndOfBreakNotification()
+            StatusBarContainer.shared.showPopover(sender: self)
         }
     }
 }
