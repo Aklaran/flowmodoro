@@ -20,8 +20,18 @@ class ActiveFocusSessionViewModel {
     
     // Model commands
     
+    func startFocus() {
+        self.model.beginFocusBlock()
+        PomodoroTimer.shared.addObserver(self.model)
+    }
+    
+    func startBreak() {
+        self.model.beginBreakBlock()
+        PomodoroTimer.shared.addObserver(self.model)
+    }
+    
     func startTiming() {
-        self.model.beginBlock()
+        self.model.beginNextBlock()
         PomodoroTimer.shared.addObserver(self.model)
     }
         

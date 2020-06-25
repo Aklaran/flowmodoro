@@ -9,8 +9,8 @@
 import Foundation
 
 enum Constants {
-    static let POMODORO_TIME_SEC: Int = 5
-    static let SHORT_BREAK_TIME_SEC: Int = 1
+    static let POMODORO_TIME_SEC: Int = 1500
+    static let SHORT_BREAK_TIME_SEC: Int = 300
     static let LONG_BREAK_TIME_SEC: Int = 600
     static let CLOVER_COUNT: Int = 4
     

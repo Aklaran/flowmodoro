@@ -41,7 +41,6 @@ class StatusBarContainer: NSObject, NSMenuDelegate {
         
         // Set the default content view for the popover
         self.popover.contentViewController = ActiveFocusSessionViewController.freshController()
-        self.showPopover(sender: self)
         
         // Initialize event monitor to detect for clicks outside of popover
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self]
@@ -84,8 +83,8 @@ class StatusBarContainer: NSObject, NSMenuDelegate {
         eventMonitor?.stop()
     }
     
-    func setPopoverContentViewController(viewModel: ActiveFocusSessionViewModel) {
-        self.popover.contentViewController = TransitionDecisionViewController.freshController(viewModel: viewModel)
+    func setPopoverContentViewController<T: NSViewController>(_ controller: T) {
+        self.popover.contentViewController = controller
     }
     
     @objc func menuDidClose(_ menu: NSMenu) {

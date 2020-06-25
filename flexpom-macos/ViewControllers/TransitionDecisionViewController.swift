@@ -24,15 +24,29 @@ class TransitionDecisionViewController: NSViewController {
         }
         
         viewcontroller.viewModel = viewModel
+        viewcontroller.viewModel.delegate = viewcontroller
                 
         return viewcontroller
     }
     
     @IBAction func focusButtonClicked(_ sender: NSButton) {
-        // TODO: segue to ActiveFocusSessionViewController and start a new focus block
+        viewModel.startFocus()
+        self.segueToActiveSessionVC()
     }
     
     @IBAction func breakButtonClicked(_ sender: NSButton) {
-        // TODO: segue to ActiveFocusSessionViewController and start a new break block
+        viewModel.startBreak()
+        self.segueToActiveSessionVC()
+    }
+    
+    func segueToActiveSessionVC() {
+        let sessionVC = ActiveFocusSessionViewController.freshController(viewModel: self.viewModel)
+        StatusBarContainer.shared.setPopoverContentViewController(sessionVC)
+    }
+}
+
+extension TransitionDecisionViewController: ActiveFocusSessionViewModelDelegate {
+    func viewModelHasNewData(_ viewModel: ActiveFocusSessionViewModel, from focusSession: FocusSession) {
+        // TODO: Set break time remaining string
     }
 }

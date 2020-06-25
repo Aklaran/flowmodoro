@@ -60,35 +60,6 @@ class ActiveFocusSessionView: NSView {
     }
     
     private func drawBreakArc() {
-//        // Create actual ring path
-//        let path = NSBezierPath()
-//        path.lineWidth = self.breakArcLineWidth
-//        path.move(to: self.view.getCenterPoint())
-//
-//        path.appendArc(withCenter: self.view.getCenterPoint(),
-//                       radius: self.breakArcRadius,
-//                       startAngle: self.startAngleDeg,
-//                       endAngle: self.startAngleDeg + self.breakArcDeg)
-//        path.close()
-//
-//        // Create inner clipping path to hide the arc lines
-//        let clippingPath = NSBezierPath()
-//        clippingPath.move(to: self.view.getCenterPoint())
-//        clippingPath.appendArc(withCenter: self.view.getCenterPoint(),
-//                               radius: self.breakArcRadius - self.breakArcLineWidth,
-//                               startAngle: self.startAngleDeg,
-//                               endAngle: self.startAngleDeg + self.breakArcDeg)
-//        clippingPath.close()
-//
-//        // Clip the outer path by the inner path
-//        path.append(clippingPath)
-//        path.addClip()
-//        path.windingRule = .evenOdd
-//
-//        // Fill!
-//        NSColor.red.setFill()
-//        path.fill()
-        
         self.drawArc(center: self.view.getCenterPoint(),
                      radius: self.breakArcRadius,
                      lineWidth: self.breakArcLineWidth,

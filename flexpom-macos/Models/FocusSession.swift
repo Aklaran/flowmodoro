@@ -68,16 +68,29 @@ class FocusSession {
         delegate?.focusSessionDidUpdateState(self)
     }
     
+    func beginFocusBlock() {
+        self.isBreak = false
+        self.beginBlock()
+    }
+    
+    func beginBreakBlock() {
+        self.isBreak = true
+        self.beginBlock()
+    }
+    
+    func beginNextBlock() {
+        self.isBreak = !self.isBreak
+        self.beginBlock()
+    }
+    
     func beginBlock() {
-        if self.currentTimeBlock != nil {
+        // If we were in a time block before that is different than our current block, commit it.
+        // Otherwise, keep adding to it.
+        if let currentBlock = self.currentTimeBlock, currentBlock.isBreak != self.isBreak {
             self.commitBlock()
         }
         
-        self.isBreak = !self.isBreak
-        
-        if self.isBreak {
-            self.currentFocusCounter = 0
-        }
+        self.currentFocusCounter = 0
         
         self.currentTimeBlock = TimeBlock(startTime: Date(), endTime: nil, isBreak: self.isBreak)
         
@@ -127,13 +140,12 @@ extension FocusSession: TimerObserver {
             }
         }
         
-        // Record the focus block
+        // If we reached the end, record the focus block
         // And transition to a new break block
         if self.currentFocusCounter % self.pomodoroTimeSec == 0 {
             self.commitBlock()
-            self.beginBlock()
             
-            // FIXME: No hook to update the Focus button label, so it stays on "Break"
+            self.beginBreakBlock()
         }
     }
     
@@ -141,6 +153,7 @@ extension FocusSession: TimerObserver {
         // Unlike the focus counters, break counter counts down from the accumulated break time to 0.
         self.breakCounter -= 1
         
+        // Session is over when all the break time is used up!
         if self.breakCounter < 0 {
             delegate?.focusSessionDidTerminate(self)
         }
