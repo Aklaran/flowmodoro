@@ -11,7 +11,12 @@ import Cocoa
 
 class ActiveFocusSessionViewModel {
     let model: FocusSession
-    weak var delegate: ActiveFocusSessionViewModelDelegate?
+    
+    weak var delegate: ActiveFocusSessionViewModelDelegate? {
+        didSet {
+            delegate?.viewModelHasNewData(self, from: self.model)
+        }
+    }
     
     init(model: FocusSession, view: ActiveFocusSessionView?) {
         self.model = model
@@ -33,6 +38,10 @@ class ActiveFocusSessionViewModel {
     func startTiming() {
         self.model.beginNextBlock()
         PomodoroTimer.shared.addObserver(self.model)
+    }
+    
+    func pauseTiming() {
+        PomodoroTimer.shared.removeObserver(self.model)
     }
         
     func stopTiming() {
@@ -58,6 +67,10 @@ class ActiveFocusSessionViewModel {
         view.focusButton.title = session.isBreak ? "Focus" : "Break"
         
         view.needsDisplay = true
+    }
+    
+    func configure(_ view: TransitionDecisionView, toShow session: FocusSession) {
+        view.breakButton.title = "Break (\(formatBreakString(counter: session.breakCounter)))"
     }
     
     private func formatFocusString(counter: Int) -> String {

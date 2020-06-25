@@ -16,4 +16,6 @@ enum Constants {
     
     static let END_POM_NOTIF_BUFFER_S: Int = 1
     static let END_BREAK_NOTIF_BUFFER_S: Int = 1
+    
+    static let TRANSITION_TIME_S: Double = 10
 }

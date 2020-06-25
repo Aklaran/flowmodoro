@@ -37,7 +37,6 @@ class ActiveFocusSessionViewController: NSViewController {
         }
         
         viewcontroller.viewModel = viewModel
-        viewcontroller.viewModel.delegate = viewcontroller
                 
         return viewcontroller
     }
@@ -53,8 +52,10 @@ class ActiveFocusSessionViewController: NSViewController {
                                             longBreakTime: Constants.LONG_BREAK_TIME_SEC,
                                             cloverCount: Constants.CLOVER_COUNT)
             self.viewModel = ActiveFocusSessionViewModel(model: focusSession, view: sessionView)
-            self.viewModel.delegate = self
         }
+        
+        self.viewModel.delegate = self
+
     }
     
     @IBAction func timerClicked(_ sender: NSButton) {
@@ -64,25 +65,26 @@ class ActiveFocusSessionViewController: NSViewController {
     @IBAction func resetClicked(_ sender: NSButton) {
         viewModel.stopTiming()
     }
+    
+    func segueToTransitionVC() {
+        let transitionVC = TransitionDecisionViewController.freshController(viewModel: self.viewModel)
+        
+        // showPopover needs to be called before setting the contentVC so the popover will resize properly
+        StatusBarContainer.shared.showPopover(sender: self)
+        StatusBarContainer.shared.setPopoverContentViewController(transitionVC)
+    }
 }
 
 extension ActiveFocusSessionViewController: ActiveFocusSessionViewModelDelegate {
     func viewModelHasNewData(_ viewModel: ActiveFocusSessionViewModel, from focusSession: FocusSession) {
         viewModel.configure(self.sessionView, toShow: focusSession)
         
-        let shouldNotifyEndOfPom = !focusSession.isBreak &&
-            (focusSession.pomodoroTimeSec - focusSession.currentFocusCounter == Constants.END_POM_NOTIF_BUFFER_S)
-        let shouldNotifyEndOfBreak = focusSession.isBreak && focusSession.breakCounter == Constants.END_BREAK_NOTIF_BUFFER_S
-        
-        if shouldNotifyEndOfPom {
-            NotificationManager.shared.showEndOfPomNotification()
-            let transitionVC = TransitionDecisionViewController.freshController(viewModel: self.viewModel)
-            StatusBarContainer.shared.setPopoverContentViewController(transitionVC)
-            StatusBarContainer.shared.showPopover(sender: self)
-        }
-        
-        if shouldNotifyEndOfBreak {
-            NotificationManager.shared.showEndOfBreakNotification()
+        let isEndOfPom = !focusSession.isBreak && focusSession.currentFocusCounter == focusSession.pomodoroTimeSec
+
+        if isEndOfPom {
+            self.viewModel.pauseTiming()
+            
+            self.segueToTransitionVC()
         }
     }
 }

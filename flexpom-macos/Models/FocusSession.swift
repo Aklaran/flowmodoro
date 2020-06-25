@@ -139,14 +139,6 @@ extension FocusSession: TimerObserver {
                 self.breakCounter += self.longBreakTimeSec
             }
         }
-        
-        // If we reached the end, record the focus block
-        // And transition to a new break block
-        if self.currentFocusCounter % self.pomodoroTimeSec == 0 {
-            self.commitBlock()
-            
-            self.beginBreakBlock()
-        }
     }
     
     private func updateBreakCounter(increment: Int) {
