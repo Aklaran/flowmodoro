@@ -10,7 +10,8 @@ import Cocoa
 
 class ActiveFocusSessionView: NSView {
     let nibName = "ActiveFocusSessionView"
-    let startAngleDeg: CGFloat = 90
+    
+    private let picasso = PathDrawer()
     
     @IBOutlet var view: NSView!
     @IBOutlet weak var focusTimeLabel: NSTextField!
@@ -18,7 +19,17 @@ class ActiveFocusSessionView: NSView {
     @IBOutlet weak var pomLabel: NSTextField!
     @IBOutlet weak var cloverLabel: NSTextField!
     @IBOutlet weak var focusButton: NSButton!
+
+    var polygon: Polygon!
     
+    let startAngleDeg: CGFloat = 90
+    
+    var arcCenter: CGPoint {
+        CGPoint(x: self.view.getCenterPoint().x , y: self.view.getCenterPoint().y + 20)
+    }
+    
+    var focusPercentage: CGFloat = 1
+
     let focusArcRadius: CGFloat = 60
     let focusArcLineWidth: CGFloat = 5
     var focusArcDeg: CGFloat = 360
@@ -40,17 +51,26 @@ class ActiveFocusSessionView: NSView {
     func commonInit() {
         Bundle.main.loadNibNamed(self.nibName, owner: self, topLevelObjects: nil)
         self.view.fixInView(self)
+        
+        self.polygon = Polygon(sides: 6,
+                               center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
+                               radius: self.focusArcRadius,
+                               isClockwise: false)
     }
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        self.drawFocusArc()
+        picasso.drawPolygonSegment(polygon: self.polygon,
+                                   lineWidth: self.focusArcLineWidth,
+                                   color: .orange,
+                                   percentComplete: self.focusPercentage)
+        //self.drawFocusArc()
         // self.drawBreakArc()
     }
     
     private func drawFocusArc() {
-        self.drawArc(center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
+        picasso.drawArc(center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
                      radius: self.focusArcRadius,
                      lineWidth: self.focusArcLineWidth,
                      startAngle: self.startAngleDeg,
@@ -59,42 +79,11 @@ class ActiveFocusSessionView: NSView {
     }
     
     private func drawBreakArc() {
-        self.drawArc(center: self.view.getCenterPoint(),
+        picasso.drawArc(center: self.view.getCenterPoint(),
                      radius: self.breakArcRadius,
                      lineWidth: self.breakArcLineWidth,
                      startAngle: self.startAngleDeg,
                      length: self.breakArcDeg,
                      color: .blue)
-    }
-    
-    private func drawArc(center: CGPoint, radius: CGFloat, lineWidth: CGFloat, startAngle: CGFloat, length: CGFloat, color: NSColor) {
-        // Create actual ring path
-        let path = NSBezierPath()
-        path.lineWidth = lineWidth
-        path.move(to: center)
-        
-        path.appendArc(withCenter: center,
-                       radius: radius,
-                       startAngle: startAngle,
-                       endAngle: startAngle + length)
-        path.close()
-        
-        // Create inner clipping path to hide the arc lines
-        let clippingPath = NSBezierPath()
-        clippingPath.move(to: center)
-        clippingPath.appendArc(withCenter: center,
-                               radius: radius - lineWidth,
-                               startAngle: startAngle,
-                               endAngle: startAngle + length)
-        clippingPath.close()
-        
-        // Clip the outer path by the inner path
-        path.append(clippingPath)
-        path.addClip()
-        path.windingRule = .evenOdd
-        
-        // Fill!
-        color.setFill()
-        path.fill()
     }
 }

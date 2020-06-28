@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E179F5324A7FACD00BF3FDD /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E179F5224A7FACD00BF3FDD /* Polygon.swift */; };
 		1E27E8FF24A3E58B002B81CE /* StatusBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27E8FE24A3E58B002B81CE /* StatusBarContainer.swift */; };
 		1E27E90124A3EEEA002B81CE /* TransitionDecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27E90024A3EEEA002B81CE /* TransitionDecisionViewController.swift */; };
 		1E27E90324A3EF55002B81CE /* TransitionDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E27E90224A3EF55002B81CE /* TransitionDecisionView.swift */; };
@@ -17,6 +18,7 @@
 		1E9A9F2224A25CE000646BF9 /* ActiveFocusSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */; };
 		1E9A9F2424A25CEB00646BF9 /* ActiveFocusSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */; };
 		1E9A9F2624A25FE000646BF9 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */; };
+		1EA3691C24A6A9910085596A /* PathDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3691B24A6A9910085596A /* PathDrawer.swift */; };
 		1EA5A17124A2486E00C5910B /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5A17024A2486E00C5910B /* FocusSession.swift */; };
 		1EA5A17324A2487B00C5910B /* TimeBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5A17224A2487B00C5910B /* TimeBlock.swift */; };
 		1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8BFA323A4226600FBF015 /* AppDelegate.swift */; };
@@ -49,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E179F5224A7FACD00BF3FDD /* Polygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
 		1E27E8FE24A3E58B002B81CE /* StatusBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarContainer.swift; sourceTree = "<group>"; };
 		1E27E90024A3EEEA002B81CE /* TransitionDecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDecisionViewController.swift; sourceTree = "<group>"; };
 		1E27E90224A3EF55002B81CE /* TransitionDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDecisionView.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFocusSessionView.swift; sourceTree = "<group>"; };
 		1E9A9F2324A25CEB00646BF9 /* ActiveFocusSessionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveFocusSessionView.xib; sourceTree = "<group>"; };
 		1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		1EA3691B24A6A9910085596A /* PathDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathDrawer.swift; sourceTree = "<group>"; };
 		1EA5A17024A2486E00C5910B /* FocusSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSession.swift; sourceTree = "<group>"; };
 		1EA5A17224A2487B00C5910B /* TimeBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBlock.swift; sourceTree = "<group>"; };
 		1EC8BFA023A4226600FBF015 /* flexpom-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flexpom-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E179F5124A7FA6400BF3FDD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1EA3691B24A6A9910085596A /* PathDrawer.swift */,
+				1E179F5224A7FACD00BF3FDD /* Polygon.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1E9A9F2724A27CC100646BF9 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +151,7 @@
 		1EA5A16B24A1B38000C5910B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E179F5124A7FA6400BF3FDD /* Helpers */,
 				1EC8BFAC23A4226700FBF015 /* Main.storyboard */,
 				1E9A9F2524A25FE000646BF9 /* ViewExtensions.swift */,
 				1E9A9F2124A25CE000646BF9 /* ActiveFocusSessionView.swift */,
@@ -366,6 +380,8 @@
 				1E9A9F2224A25CE000646BF9 /* ActiveFocusSessionView.swift in Sources */,
 				1E27E8FF24A3E58B002B81CE /* StatusBarContainer.swift in Sources */,
 				1E27E90124A3EEEA002B81CE /* TransitionDecisionViewController.swift in Sources */,
+				1E179F5324A7FACD00BF3FDD /* Polygon.swift in Sources */,
+				1EA3691C24A6A9910085596A /* PathDrawer.swift in Sources */,
 				1E9A9F2624A25FE000646BF9 /* ViewExtensions.swift in Sources */,
 				1EC8BFA423A4226600FBF015 /* AppDelegate.swift in Sources */,
 			);

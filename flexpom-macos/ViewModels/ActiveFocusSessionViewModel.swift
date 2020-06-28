@@ -60,6 +60,7 @@ class ActiveFocusSessionViewModel {
         
         view.focusTimeLabel.stringValue = focusTimeString
         view.breakTimeLabel.stringValue = breakTimeString
+        view.focusPercentage = CGFloat(session.percentFocusRemaining)
         view.focusArcDeg = focusArcDeg
         view.breakArcDeg = breakArcDeg
         view.pomLabel.stringValue = "Poms: \(session.numPoms)"

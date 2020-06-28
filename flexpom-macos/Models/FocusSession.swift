@@ -37,6 +37,13 @@ class FocusSession {
     private(set) var numPoms = 0
     private(set) var numClovers = 0
     
+    // Calculated variables
+    
+    var percentFocusRemaining: Double {
+        let elapsedCount = pomodoroTimeSec - currentFocusCounter
+        return Double(elapsedCount) / Double(pomodoroTimeSec + shortBreakTimeSec)
+    }
+    
     // Stored variables
 
     private var timeBlocks = [TimeBlock]() {
