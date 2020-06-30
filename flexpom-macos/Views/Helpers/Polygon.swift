@@ -14,16 +14,18 @@ struct Polygon {
     init(sides: Int,
          center: CGPoint,
          radius: CGFloat,
+         startAngleDeg: CGFloat,
          isClockwise: Bool) {
-        // For ease of maths, this is restricted to only having the start angle be 90deg straight up for now.
-        let vertexAngle: CGFloat = 2 * CGFloat.pi / CGFloat(sides)
-
+        // if we want to go counter-clockwise, we need to multiply all x-coords by -1.
+        let xMult: CGFloat = isClockwise ? -1 : 1
+        let startAngleRad = isClockwise ? startAngleDeg.asRadians() - .pi : startAngleDeg.asRadians()
         var items = [Vertex]()
         for i in 0..<sides {
-            // if we want to go counter-clockwise, we need to multiply all x-coords by -1.
-            let xMult: CGFloat = isClockwise ? 1 : -1
-            let x = center.x + (xMult * (radius * sin(CGFloat(i) * vertexAngle)))
-            let y = center.y + radius * cos(CGFloat(i) * vertexAngle)
+            let trigFactor = startAngleRad + 2 * CGFloat(i) * .pi / CGFloat(sides)
+            
+            let x = center.x + (xMult * (radius * cos(trigFactor)))
+            let y = center.y + (radius * sin(trigFactor))
+            
             let coords = CGPoint(x: x, y: y)
             let percentOfShape = CGFloat(i) / CGFloat(sides)
             items.append(Vertex(coords: coords, percentOfShape: percentOfShape))
@@ -39,4 +41,10 @@ struct Polygon {
 struct Vertex {
     let coords: CGPoint
     let percentOfShape: CGFloat
+}
+
+extension CGFloat {
+    func asRadians() -> CGFloat {
+        return self * .pi / 180
+    }
 }

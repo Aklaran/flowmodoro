@@ -54,13 +54,14 @@ class ActiveFocusSessionViewModel {
     
     func configure(_ view: ActiveFocusSessionView, toShow session: FocusSession) {
         let focusTimeString = self.formatFocusString(counter: session.currentFocusCounter)
-        let breakTimeString = self.formatBreakString(counter: session.breakCounter)
+        let breakTimeString = self.formatBreakString(counter: session.totalBreakCounter)
         let focusArcDeg = self.calculateFocusArc(currentCount: session.currentFocusCounter, totalCount: session.pomodoroTimeSec)
-        let breakArcDeg = self.calculateBreakArc(currentCount: session.breakCounter, totalCount: session.pomodoroTimeSec)
+        let breakArcDeg = self.calculateBreakArc(currentCount: session.totalBreakCounter, totalCount: session.pomodoroTimeSec)
         
         view.focusTimeLabel.stringValue = focusTimeString
         view.breakTimeLabel.stringValue = breakTimeString
         view.focusPercentage = CGFloat(session.percentFocusRemaining)
+        view.breakPercentage = CGFloat(session.percentBreakRemaining)
         view.focusArcDeg = focusArcDeg
         view.breakArcDeg = breakArcDeg
         view.pomLabel.stringValue = "Poms: \(session.numPoms)"
@@ -71,7 +72,7 @@ class ActiveFocusSessionViewModel {
     }
     
     func configure(_ view: TransitionDecisionView, toShow session: FocusSession) {
-        view.breakButton.title = "Break (\(formatBreakString(counter: session.breakCounter)))"
+        view.breakButton.title = "Break (\(formatBreakString(counter: session.totalBreakCounter)))"
     }
     
     private func formatFocusString(counter: Int) -> String {

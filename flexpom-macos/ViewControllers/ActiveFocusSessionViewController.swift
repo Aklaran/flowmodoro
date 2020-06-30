@@ -81,7 +81,7 @@ extension ActiveFocusSessionViewController: ActiveFocusSessionViewModelDelegate 
         
         let isEndOfPom = !focusSession.isBreak && focusSession.currentFocusCounter == focusSession.pomodoroTimeSec
         
-        let isAlmostEndOfBreak = focusSession.isBreak && focusSession.breakCounter == Constants.END_BREAK_NOTIF_BUFFER_S
+        let isAlmostEndOfBreak = focusSession.isBreak && focusSession.totalBreakCounter == Constants.END_BREAK_NOTIF_BUFFER_S
 
         if isEndOfPom {
             self.viewModel.pauseTiming()

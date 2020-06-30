@@ -30,7 +30,8 @@ class FocusSession {
     
     private(set) var totalFocusCounter: Int = 0 // The total time spent focusing in the session
     private(set) var currentFocusCounter: Int = 0 // The time spent focusing in the current focus block
-    private(set) var breakCounter: Int = 0 // The accumulated break time remaining in the session
+    private(set) var totalBreakCounter: Int = 0 // The accumulated break time remaining in the session
+    private(set) var currentBreakCounter: Int = 0 // The break time accumulated as a result of the current focus block
     
     private(set) var isBreak: Bool = true
     
@@ -44,13 +45,14 @@ class FocusSession {
         return Double(elapsedCount) / Double(pomodoroTimeSec + shortBreakTimeSec)
     }
     
+    var percentBreakRemaining: Double {
+        print(self.currentBreakCounter)
+        return Double(self.currentBreakCounter) / Double(pomodoroTimeSec + shortBreakTimeSec)
+    }
+    
     // Stored variables
 
-    private var timeBlocks = [TimeBlock]() {
-        didSet {
-            print(timeBlocks.count)
-        }
-    }
+    private var timeBlocks = [TimeBlock]()
     private var currentTimeBlock: TimeBlock?
     
     init(pomodoroTime: Int, shortBreakTime: Int, longBreakTime: Int, cloverCount: Int) {
@@ -67,7 +69,8 @@ class FocusSession {
         // wipe the slate
         self.currentFocusCounter = 0
         self.totalFocusCounter = 0
-        self.breakCounter = 0
+        self.currentBreakCounter = 0
+        self.totalBreakCounter = 0
         self.numPoms = 0
         self.numClovers = 0
         self.isBreak = true
@@ -97,7 +100,10 @@ class FocusSession {
             self.commitBlock()
         }
         
-        self.currentFocusCounter = 0
+        if !self.isBreak {
+            self.currentFocusCounter = 0
+            self.currentBreakCounter = 0
+        }
         
         self.currentTimeBlock = TimeBlock(startTime: Date(), endTime: nil, isBreak: self.isBreak)
         
@@ -134,7 +140,8 @@ extension FocusSession: TimerObserver {
         // Add to the break counter such that, at the end of focusTimeSec seconds, shortBreakTimeSec seconds of break time
         // will have been accumulated.
         if self.currentFocusCounter % self.breakRatio == 0 {
-            self.breakCounter += 1
+            self.currentBreakCounter += 1
+            self.totalBreakCounter += 1
         }
         
         // Award a pom if the total focus time of the session reaches the threshold
@@ -144,17 +151,18 @@ extension FocusSession: TimerObserver {
             // Award a clover if the number of poms achieved in the session reaches the threshold
             if self.numPoms % self.cloverCount == 0 {
                 self.numClovers += 1
-                self.breakCounter += self.longBreakTimeSec
+                self.totalBreakCounter += self.longBreakTimeSec
             }
         }
     }
     
     private func updateBreakCounter(increment: Int) {
         // Unlike the focus counters, break counter counts down from the accumulated break time to 0.
-        self.breakCounter -= 1
+        self.currentBreakCounter -= 1
+        self.totalBreakCounter -= 1
         
         // Session is over when all the break time is used up!
-        if self.breakCounter < 0 {
+        if self.totalBreakCounter < 0 {
             delegate?.focusSessionDidTerminate(self)
         }
     }

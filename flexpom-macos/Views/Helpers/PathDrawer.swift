@@ -46,7 +46,10 @@ struct PathDrawer {
     }
     
     func drawPolygonSegment(polygon: Polygon, lineWidth: CGFloat, color: NSColor, percentComplete: CGFloat) {
-        print(percentComplete)
+        guard percentComplete > 0 else {
+            return
+        }
+        
         let path = NSBezierPath()
         path.lineWidth = lineWidth
         path.lineCapStyle = .round

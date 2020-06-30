@@ -20,7 +20,8 @@ class ActiveFocusSessionView: NSView {
     @IBOutlet weak var cloverLabel: NSTextField!
     @IBOutlet weak var focusButton: NSButton!
 
-    var polygon: Polygon!
+    var focusPolygon: Polygon!
+    var currentBreakPolygon: Polygon!
     
     let startAngleDeg: CGFloat = 90
     
@@ -28,7 +29,8 @@ class ActiveFocusSessionView: NSView {
         CGPoint(x: self.view.getCenterPoint().x , y: self.view.getCenterPoint().y + 20)
     }
     
-    var focusPercentage: CGFloat = 1
+    var focusPercentage: CGFloat = 0
+    var breakPercentage: CGFloat = 0
 
     let focusArcRadius: CGFloat = 60
     let focusArcLineWidth: CGFloat = 5
@@ -52,38 +54,37 @@ class ActiveFocusSessionView: NSView {
         Bundle.main.loadNibNamed(self.nibName, owner: self, topLevelObjects: nil)
         self.view.fixInView(self)
         
-        self.polygon = Polygon(sides: 6,
+        self.focusPolygon = Polygon(sides: 6,
                                center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
                                radius: self.focusArcRadius,
+                               startAngleDeg: 90,
                                isClockwise: false)
+        
+        self.currentBreakPolygon = Polygon(sides: 6,
+                                           center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
+                                           radius: self.focusArcRadius,
+                                           startAngleDeg: -90,
+                                           isClockwise: true)
+        
     }
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        
-        picasso.drawPolygonSegment(polygon: self.polygon,
+        drawBreakPolygonSegment()
+        drawFocusPolygonSegment()
+    }
+    
+    private func drawFocusPolygonSegment() {
+        picasso.drawPolygonSegment(polygon: self.currentBreakPolygon,
+                                   lineWidth: self.focusArcLineWidth,
+                                   color: .blue,
+                                   percentComplete: self.breakPercentage)
+    }
+    
+    private func drawBreakPolygonSegment() {
+        picasso.drawPolygonSegment(polygon: self.focusPolygon,
                                    lineWidth: self.focusArcLineWidth,
                                    color: .orange,
                                    percentComplete: self.focusPercentage)
-        //self.drawFocusArc()
-        // self.drawBreakArc()
-    }
-    
-    private func drawFocusArc() {
-        picasso.drawArc(center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
-                     radius: self.focusArcRadius,
-                     lineWidth: self.focusArcLineWidth,
-                     startAngle: self.startAngleDeg,
-                     length: self.focusArcDeg,
-                     color: .orange)
-    }
-    
-    private func drawBreakArc() {
-        picasso.drawArc(center: self.view.getCenterPoint(),
-                     radius: self.breakArcRadius,
-                     lineWidth: self.breakArcLineWidth,
-                     startAngle: self.startAngleDeg,
-                     length: self.breakArcDeg,
-                     color: .blue)
     }
 }
