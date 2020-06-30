@@ -73,8 +73,12 @@ class FocusSession {
         self.totalBreakCounter = 0
         self.numPoms = 0
         self.numClovers = 0
-        self.isBreak = true
+        self.isBreak = false
         
+        delegate?.focusSessionDidUpdateState(self)
+        
+        // hack to get the UI to update correctly when the focus session expires
+        self.isBreak = true
         delegate?.focusSessionDidUpdateState(self)
     }
     

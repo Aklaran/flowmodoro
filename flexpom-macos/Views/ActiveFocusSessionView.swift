@@ -13,6 +13,8 @@ class ActiveFocusSessionView: NSView {
     
     private let picasso = PathDrawer()
     
+    static let DEFAULT_START_ANGLE: CGFloat = 90
+    
     @IBOutlet var view: NSView!
     @IBOutlet weak var focusTimeLabel: NSTextField!
     @IBOutlet weak var breakTimeLabel: NSTextField!
@@ -23,7 +25,7 @@ class ActiveFocusSessionView: NSView {
     var focusPolygon: Polygon!
     var currentBreakPolygon: Polygon!
     
-    let startAngleDeg: CGFloat = 90
+    var startAngleDeg: CGFloat = ActiveFocusSessionView.DEFAULT_START_ANGLE
     
     var arcCenter: CGPoint {
         CGPoint(x: self.view.getCenterPoint().x , y: self.view.getCenterPoint().y + 20)
@@ -54,18 +56,22 @@ class ActiveFocusSessionView: NSView {
         Bundle.main.loadNibNamed(self.nibName, owner: self, topLevelObjects: nil)
         self.view.fixInView(self)
         
+        self.generatePolygons(isBreak: false)
+    }
+    
+    func generatePolygons(isBreak: Bool) {
         self.focusPolygon = Polygon(sides: 6,
                                center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
                                radius: self.focusArcRadius,
-                               startAngleDeg: 90,
+                               startAngleDeg: self.startAngleDeg,
                                isClockwise: false)
         
+        let breakPolyShouldBeClockwise = !isBreak
         self.currentBreakPolygon = Polygon(sides: 6,
                                            center: CGPoint(x: self.view.getCenterPoint().x, y: self.view.getCenterPoint().y + 20),
                                            radius: self.focusArcRadius,
-                                           startAngleDeg: -90,
-                                           isClockwise: true)
-        
+                                           startAngleDeg: self.startAngleDeg,
+                                           isClockwise: breakPolyShouldBeClockwise)
     }
     
     override func draw(_ dirtyRect: NSRect) {

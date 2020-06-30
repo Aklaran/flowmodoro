@@ -18,6 +18,8 @@ class ActiveFocusSessionViewModel {
         }
     }
     
+    private var isCurrentlyShowingBreak: Bool = false
+    
     init(model: FocusSession, view: ActiveFocusSessionView?) {
         self.model = model
         self.model.delegate = self
@@ -57,6 +59,22 @@ class ActiveFocusSessionViewModel {
         let breakTimeString = self.formatBreakString(counter: session.totalBreakCounter)
         let focusArcDeg = self.calculateFocusArc(currentCount: session.currentFocusCounter, totalCount: session.pomodoroTimeSec)
         let breakArcDeg = self.calculateBreakArc(currentCount: session.totalBreakCounter, totalCount: session.pomodoroTimeSec)
+        
+        if session.isBreak != self.isCurrentlyShowingBreak {
+            if session.isBreak {
+                let startAngle = ActiveFocusSessionView.DEFAULT_START_ANGLE - CGFloat(session.percentBreakRemaining * 360)
+                if startAngle != view.startAngleDeg {
+                    view.startAngleDeg = startAngle
+                    view.generatePolygons(isBreak: true)
+                }
+            } else {
+                if ActiveFocusSessionView.DEFAULT_START_ANGLE != view.startAngleDeg {
+                    view.startAngleDeg = ActiveFocusSessionView.DEFAULT_START_ANGLE
+                    view.generatePolygons(isBreak: false)
+                }
+            }
+            self.isCurrentlyShowingBreak = session.isBreak
+        }
         
         view.focusTimeLabel.stringValue = focusTimeString
         view.breakTimeLabel.stringValue = breakTimeString

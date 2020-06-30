@@ -16,14 +16,17 @@ struct Polygon {
          radius: CGFloat,
          startAngleDeg: CGFloat,
          isClockwise: Bool) {
-        // if we want to go counter-clockwise, we need to multiply all x-coords by -1.
-        let xMult: CGFloat = isClockwise ? -1 : 1
+        // if we want to go counter-clockwise, we need to take the negative in all our trig functions
+        let clockMult: CGFloat = isClockwise ? -1 : 1
+        // If we're taking the negatives of all of our trig functions, we need to start on the
+        // opposite side of the shape
         let startAngleRad = isClockwise ? startAngleDeg.asRadians() - .pi : startAngleDeg.asRadians()
+        
         var items = [Vertex]()
         for i in 0..<sides {
-            let trigFactor = startAngleRad + 2 * CGFloat(i) * .pi / CGFloat(sides)
+            let trigFactor = clockMult * (startAngleRad + 2 * CGFloat(i) * .pi / CGFloat(sides))
             
-            let x = center.x + (xMult * (radius * cos(trigFactor)))
+            let x = center.x + (radius * cos(trigFactor))
             let y = center.y + (radius * sin(trigFactor))
             
             let coords = CGPoint(x: x, y: y)
