@@ -28,11 +28,16 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.my-custom-view-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-custom-view-wrapper div:last-child {
+  /* Here we are styling the button container. */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }

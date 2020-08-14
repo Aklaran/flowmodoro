@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import EdiText from 'react-editext';
+
 import '../css/App.css';
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
   const [isFocus, setIsFocus] = useState(false);
   const [pomCount, setPomCount] = useState(0);
   const [cloverCount, setCloverCount] = useState(0);
+
+  const[flowNotes, setFlowNotes] = useState('Flow Notes');
 
   function toggleFocus() {
     if (!isCounting) {
@@ -90,6 +94,21 @@ function App() {
         <button className="button" onClick={reset}>
           Reset
         </button>
+        <EdiText
+          submitOnEnter
+          cancelOnEscape
+          editOnViewClick={true}
+          viewContainerClassName='my-custom-view-wrapper'
+          type="text"
+          inputProps={{
+            rows: 5
+          }}
+          saveButtonContent='Apply'
+          cancelButtonContent={<strong>Cancel</strong>}
+          editButtonContent='Edit Flow Notes'
+          value={flowNotes}
+          onSave={setFlowNotes}
+        />
       </header>
     </div>
   );
