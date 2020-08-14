@@ -1,23 +1,22 @@
 {
   "files": {
     "main.css": "/flowmodoro/static/css/main.5f361e03.chunk.css",
-    "main.js": "/flowmodoro/static/js/main.f3897679.chunk.js",
-    "main.js.map": "/flowmodoro/static/js/main.f3897679.chunk.js.map",
+    "main.js": "/flowmodoro/static/js/main.718a8d40.chunk.js",
+    "main.js.map": "/flowmodoro/static/js/main.718a8d40.chunk.js.map",
     "runtime-main.js": "/flowmodoro/static/js/runtime-main.7d1b7ea0.js",
     "runtime-main.js.map": "/flowmodoro/static/js/runtime-main.7d1b7ea0.js.map",
-    "static/js/2.543c8d33.chunk.js": "/flowmodoro/static/js/2.543c8d33.chunk.js",
-    "static/js/2.543c8d33.chunk.js.map": "/flowmodoro/static/js/2.543c8d33.chunk.js.map",
+    "static/js/2.7acc086b.chunk.js": "/flowmodoro/static/js/2.7acc086b.chunk.js",
+    "static/js/2.7acc086b.chunk.js.map": "/flowmodoro/static/js/2.7acc086b.chunk.js.map",
     "index.html": "/flowmodoro/index.html",
-    "precache-manifest.bf19b2a9690826ecb8c08b0675b44ab6.js": "/flowmodoro/precache-manifest.bf19b2a9690826ecb8c08b0675b44ab6.js",
+    "precache-manifest.b1f0f2be56230cd904cd5322a7a70e5a.js": "/flowmodoro/precache-manifest.b1f0f2be56230cd904cd5322a7a70e5a.js",
     "service-worker.js": "/flowmodoro/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/flowmodoro/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.543c8d33.chunk.js.LICENSE.txt": "/flowmodoro/static/js/2.543c8d33.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/flowmodoro/static/media/logo.5d5d9eef.svg"
+    "static/js/2.7acc086b.chunk.js.LICENSE.txt": "/flowmodoro/static/js/2.7acc086b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7d1b7ea0.js",
-    "static/js/2.543c8d33.chunk.js",
+    "static/js/2.7acc086b.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.f3897679.chunk.js"
+    "static/js/main.718a8d40.chunk.js"
   ]
 }

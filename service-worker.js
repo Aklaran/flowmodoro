@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/flowmodoro/precache-manifest.bf19b2a9690826ecb8c08b0675b44ab6.js"
+  "/flowmodoro/precache-manifest.b1f0f2be56230cd904cd5322a7a70e5a.js"
 );
 
 self.addEventListener('message', (event) => {
