@@ -15,7 +15,7 @@ function App() {
   const longBreakTimeSec = 15 * 60;
 
   const [focusTimeSec, setFocusTime] = useState(pomodoroDurationSec);
-  const [breakTimeSec, setBreakTime] = useState(13);
+  const [breakTimeSec, setBreakTime] = useState(0);
   const [isCounting, setIsCounting] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [pomCount, setPomCount] = useState(0);
