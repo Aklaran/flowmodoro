@@ -84,7 +84,7 @@ function App() {
       <header className="App-header">
         <h1>Flowmodoro!</h1>
         <span>Focus: {Math.floor(focusTimeSec / 60)}m {focusTimeSec % 60}s</span>
-        <span>Break: {Math.floor(breakTimeSec / 60)}m {breakTimeSec % 50}s</span>
+        <span>Break: {Math.floor(breakTimeSec / 60)}m {breakTimeSec % 60}s</span>
         <span>---</span>
         <span>Poms: {pomCount}</span>
         <span>Clovers: {cloverCount}</span>
