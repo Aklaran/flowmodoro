@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/flowmodoro/static/css/main.1bde8307.chunk.css",
-    "main.js": "/flowmodoro/static/js/main.01bdcbf2.chunk.js",
-    "main.js.map": "/flowmodoro/static/js/main.01bdcbf2.chunk.js.map",
+    "main.js": "/flowmodoro/static/js/main.c1609e4d.chunk.js",
+    "main.js.map": "/flowmodoro/static/js/main.c1609e4d.chunk.js.map",
     "runtime-main.js": "/flowmodoro/static/js/runtime-main.7d1b7ea0.js",
     "runtime-main.js.map": "/flowmodoro/static/js/runtime-main.7d1b7ea0.js.map",
     "static/js/2.f9b14ff7.chunk.js": "/flowmodoro/static/js/2.f9b14ff7.chunk.js",
     "static/js/2.f9b14ff7.chunk.js.map": "/flowmodoro/static/js/2.f9b14ff7.chunk.js.map",
     "index.html": "/flowmodoro/index.html",
-    "precache-manifest.4786a336d40a396e97ff1e186dd16bce.js": "/flowmodoro/precache-manifest.4786a336d40a396e97ff1e186dd16bce.js",
+    "precache-manifest.34327dedb22c7c31aec26aae475822cf.js": "/flowmodoro/precache-manifest.34327dedb22c7c31aec26aae475822cf.js",
     "service-worker.js": "/flowmodoro/service-worker.js",
     "static/css/main.1bde8307.chunk.css.map": "/flowmodoro/static/css/main.1bde8307.chunk.css.map",
     "static/js/2.f9b14ff7.chunk.js.LICENSE.txt": "/flowmodoro/static/js/2.f9b14ff7.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.7d1b7ea0.js",
     "static/js/2.f9b14ff7.chunk.js",
     "static/css/main.1bde8307.chunk.css",
-    "static/js/main.01bdcbf2.chunk.js"
+    "static/js/main.c1609e4d.chunk.js"
   ]
 }
