@@ -15,19 +15,36 @@ function App() {
   const longBreakTimeSec = 15 * 60;
 
   const [focusTimeSec, setFocusTime] = useState(pomodoroDurationSec);
-  const [breakTimeSec, setBreakTime] = useState(0);
+  const [breakTimeSec, setBreakTime] = useState(11);
   const [isCounting, setIsCounting] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [pomCount, setPomCount] = useState(0);
   const [cloverCount, setCloverCount] = useState(0);
+  const [lastTickTime, setLastTickTime] = useState(0);
 
   const [flowNotes, setFlowNotes] = useState('Flow Notes');
 
   // FIXME: Make sound functions async so they don't halt the timer
-  const [playStartSfx] = useSound(startSfx);
-  const [playEndSfx] = useSound(endSfx);
-  const [playBreakEndWarningSfx] = useSound(breakEndWarningSfx);
-  const [playResetSfx] = useSound(resetSfx);
+  const [playStartHook] = useSound(startSfx);
+  const [playEndHook] = useSound(endSfx);
+  const [playBreakEndWarningHook] = useSound(breakEndWarningSfx);
+  const [playResetHook] = useSound(resetSfx);
+
+  async function playEndSfx() {
+    playEndHook();
+  }
+
+  async function playStartSfx() {
+    playStartHook();
+  }
+
+  async function playBreakEndWarningSfx() {
+    playBreakEndWarningHook();
+  }
+
+  async function playResetSfx() {
+    playResetHook();
+  }
 
   function toggleFocus() {
     if (!isCounting) {
@@ -48,7 +65,23 @@ function App() {
     setBreakTime(0);
     setIsFocus(false);
     setIsCounting(false);
+    setLastTickTime(0);
     playResetSfx();
+  }
+
+  function getElapsed() {
+    if (lastTickTime === 0) {
+      setLastTickTime(Date.now());
+      console.log(lastTickTime);
+      console.log(0);
+      return 1;
+    }
+
+    let elapsed = Math.round((Date.now() - lastTickTime) / 1000);
+    console.log(lastTickTime);
+    console.log(elapsed);
+    setLastTickTime(Date.now());
+    return elapsed;
   }
 
   useEffect(() => {
@@ -57,9 +90,11 @@ function App() {
     if (isCounting && isFocus) {
       // In a focus session
       interval = setInterval(() => {
-        let newFocusTime = focusTimeSec - 1
+        let elapsed = getElapsed();
+
+        let newFocusTime = focusTimeSec - elapsed
         if (newFocusTime % breakRatio === 0) {
-          setBreakTime(seconds => seconds + 1);
+          setBreakTime(seconds => seconds + elapsed);
         }
 
         if (newFocusTime === 0) {
@@ -81,7 +116,9 @@ function App() {
     } else if (isCounting && !isFocus) {
       // In a break session
       interval = setInterval(() => {
-        setBreakTime(seconds => seconds - 1);
+        let elapsed = getElapsed();
+
+        setBreakTime(seconds => seconds - elapsed);
 
         if (breakTimeSec === 10) {
           playBreakEndWarningSfx();
@@ -97,7 +134,7 @@ function App() {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isCounting, isFocus, focusTimeSec, breakTimeSec, longBreakTimeSec, breakRatio, pomodoroDurationSec, pomCount, reset]);
+  }, [isCounting, isFocus, focusTimeSec, breakTimeSec, longBreakTimeSec, breakRatio, pomodoroDurationSec, pomCount, lastTickTime, reset]);
 
   return (
     <div className="App">
