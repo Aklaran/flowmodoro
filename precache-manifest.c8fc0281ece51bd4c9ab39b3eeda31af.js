@@ -1,35 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "49dccf1d658f568dd3856ad2ef079d3e",
+    "revision": "a993bf3028f365462fdacc4495ec3556",
     "url": "/flowmodoro/index.html"
   },
   {
-    "revision": "1889fa5b4824ec5aca6a",
+    "revision": "d050d0f438730dd0d693",
     "url": "/flowmodoro/static/css/main.1bde8307.chunk.css"
   },
   {
-    "revision": "262e663ce7a5fe80c474",
-    "url": "/flowmodoro/static/js/2.a30ae41d.chunk.js"
+    "revision": "edd3e1782b18c61d9d9a",
+    "url": "/flowmodoro/static/js/2.49bd4088.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/flowmodoro/static/js/2.a30ae41d.chunk.js.LICENSE.txt"
+    "url": "/flowmodoro/static/js/2.49bd4088.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9767ae9be5f065d964dd",
-    "url": "/flowmodoro/static/js/3.40ae0f49.chunk.js"
+    "revision": "6995135e0d0b6d385370",
+    "url": "/flowmodoro/static/js/3.627bd524.chunk.js"
   },
   {
     "revision": "196f31064c641ef86b22f34244b7ad03",
-    "url": "/flowmodoro/static/js/3.40ae0f49.chunk.js.LICENSE.txt"
+    "url": "/flowmodoro/static/js/3.627bd524.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1889fa5b4824ec5aca6a",
-    "url": "/flowmodoro/static/js/main.2dd9add0.chunk.js"
+    "revision": "d050d0f438730dd0d693",
+    "url": "/flowmodoro/static/js/main.8ce2cf58.chunk.js"
   },
   {
-    "revision": "b8e58ca843c96948509e",
-    "url": "/flowmodoro/static/js/runtime-main.902635c1.js"
+    "revision": "058bd3d42d61ad12c461",
+    "url": "/flowmodoro/static/js/runtime-main.08a2dd27.js"
   },
   {
     "revision": "e200f56eaa9dd94bd00914b780697b2d",
