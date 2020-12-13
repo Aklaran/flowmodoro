@@ -15,7 +15,7 @@ function App() {
   const longBreakTimeSec = 15 * 60;
 
   const [focusTimeSec, setFocusTime] = useState(pomodoroDurationSec);
-  const [breakTimeSec, setBreakTime] = useState(11);
+  const [breakTimeSec, setBreakTime] = useState(0);
   const [isCounting, setIsCounting] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [pomCount, setPomCount] = useState(0);
@@ -78,8 +78,7 @@ function App() {
     }
 
     let elapsed = Math.round((Date.now() - lastTickTime) / 1000);
-    console.log(lastTickTime);
-    console.log(elapsed);
+    console.log(elapsed + " sec elapsed");
     setLastTickTime(Date.now());
     return elapsed;
   }
@@ -93,8 +92,12 @@ function App() {
         let elapsed = getElapsed();
 
         let newFocusTime = focusTimeSec - elapsed
-        if (newFocusTime % breakRatio === 0) {
-          setBreakTime(seconds => seconds + elapsed);
+
+        for (const i of Array(elapsed).keys()) {
+          let testTime = focusTimeSec - i;
+          if (testTime % breakRatio === 0) {
+            setBreakTime(seconds => seconds + 1);
+          }
         }
 
         if (newFocusTime === 0) {
