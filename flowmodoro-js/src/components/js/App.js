@@ -100,7 +100,7 @@ function App() {
           }
         }
 
-        if (newFocusTime === 0) {
+        if (newFocusTime <= 0) {
           // Completed a Pom
           let newPomCount = pomCount + 1;
           setPomCount(newPomCount);
