@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a993bf3028f365462fdacc4495ec3556",
+    "revision": "c150ebce0c5d33f8a342dc9d09585379",
     "url": "/flowmodoro/index.html"
   },
   {
-    "revision": "d050d0f438730dd0d693",
+    "revision": "2ab41e50a545e967b871",
     "url": "/flowmodoro/static/css/main.1bde8307.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/flowmodoro/static/js/3.627bd524.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d050d0f438730dd0d693",
-    "url": "/flowmodoro/static/js/main.8ce2cf58.chunk.js"
+    "revision": "2ab41e50a545e967b871",
+    "url": "/flowmodoro/static/js/main.1c2337a5.chunk.js"
   },
   {
     "revision": "058bd3d42d61ad12c461",
