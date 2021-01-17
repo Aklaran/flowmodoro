@@ -11,7 +11,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-editext": "^3.16.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "use-sound": "^2.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",
