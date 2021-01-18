@@ -8,7 +8,7 @@ import resetSfx from '../../assets/sounds/come-to-daddy-511.mp3';
 
 import '../css/Timer.css';
 
-function Timer() {
+export default function Timer() {
     const pomodoroDurationSec = 25 * 60;
     const shortBreakTimeSec = 5 * 60;
     const breakRatio = Math.ceil(pomodoroDurationSec / shortBreakTimeSec);
@@ -153,5 +153,3 @@ function Timer() {
       </div>
     );
 }
-
-export default Timer;
