@@ -54,9 +54,7 @@ function App() {
       setCloverCount(0);
       playStartSfx();
     }
-    if (isFocus) {
-      setFocusTime(pomodoroDurationSec);
-    }
+    
     setIsFocus(!isFocus);
   }
 
