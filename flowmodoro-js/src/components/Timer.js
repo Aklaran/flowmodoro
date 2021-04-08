@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+
 import EdiText from 'react-editext';
 import useSound from 'use-sound';
 
-import '../css/App.css';
-import startSfx from '../../assets/sounds/me-too-603.mp3';
-import endSfx from '../../assets/sounds/pristine-609.mp3';
-import breakEndWarningSfx from '../../assets/sounds/hold-on-560.mp3';
-import resetSfx from '../../assets/sounds/come-to-daddy-511.mp3';
+import startSfx from '../assets/sounds/me-too-603.mp3';
+import endSfx from '../assets/sounds/pristine-609.mp3';
+import breakEndWarningSfx from '../assets/sounds/hold-on-560.mp3';
+import resetSfx from '../assets/sounds/come-to-daddy-511.mp3';
 
-function App() {
+function Timer() {
   const pomodoroDurationSec = 25 * 60;
   const shortBreakTimeSec = 5 * 60;
   const breakRatio = Math.ceil(pomodoroDurationSec / shortBreakTimeSec);
@@ -138,9 +139,7 @@ function App() {
   }, [isCounting, isFocus, focusTimeSec, breakTimeSec, longBreakTimeSec, breakRatio, pomodoroDurationSec, pomCount, lastTickTime, reset]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Flowmodoro!</h1>
+    <Wrapper>
         <span>Focus: {Math.floor(focusTimeSec / 60)}m {focusTimeSec % 60}s</span>
         <span>Break: {Math.floor(breakTimeSec / 60)}m {breakTimeSec % 60}s</span>
         <span>---</span>
@@ -167,9 +166,16 @@ function App() {
           value={flowNotes}
           onSave={setFlowNotes}
         />
-      </header>
-    </div>
+    </Wrapper>
   );
 }
 
-export default App;
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+`
+
+export default Timer;
