@@ -61,9 +61,14 @@ function describeArc(x, y, radius, startAngle, endAngle) {
     var start = polarToCartesian(x, y, radius, endAngle);
     var end = polarToCartesian(x, y, radius, startAngle);
 
-    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    var largeArcFlag = "0";
+    if (endAngle >= startAngle) {
+        largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    } else {
+        largeArcFlag = endAngle + 360.0 - startAngle <= 180 ? "0" : "1";
+    }
 
-    return [
+    var d = [
         "M",
         start.x,
         start.y,
@@ -76,4 +81,6 @@ function describeArc(x, y, radius, startAngle, endAngle) {
         end.x,
         end.y,
     ].join(" ");
+
+    return d;
 }

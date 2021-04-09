@@ -176,8 +176,12 @@ function Timer() {
             <Arc
                 color={COLORS.purple}
                 radius={588}
-                startAngleDeg={0}
-                endAngleDeg={(breakTimeSec / pomodoroDurationSec) * -360}
+                startAngleDeg={
+                    breakTimeSec >= pomodoroDurationSec
+                        ? -359.99
+                        : (breakTimeSec / pomodoroDurationSec) * -360
+                }
+                endAngleDeg={0}
             />
             <p>
                 {pomCount} ||| {cloverCount}
