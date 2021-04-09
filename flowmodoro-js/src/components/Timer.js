@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
-import EdiText from 'react-editext';
-import useSound from 'use-sound';
+import EdiText from "react-editext";
+import useSound from "use-sound";
 
-import startSfx from '../assets/sounds/me-too-603.mp3';
-import endSfx from '../assets/sounds/pristine-609.mp3';
-import breakEndWarningSfx from '../assets/sounds/hold-on-560.mp3';
-import resetSfx from '../assets/sounds/come-to-daddy-511.mp3';
-import TimeDisplay from './TimeDisplay';
+import startSfx from "../assets/sounds/me-too-603.mp3";
+import endSfx from "../assets/sounds/pristine-609.mp3";
+import breakEndWarningSfx from "../assets/sounds/hold-on-560.mp3";
+import resetSfx from "../assets/sounds/come-to-daddy-511.mp3";
+import TimeDisplay from "./TimeDisplay";
 
 function Timer() {
   const pomodoroDurationSec = 25 * 60;
@@ -24,7 +24,7 @@ function Timer() {
   const [cloverCount, setCloverCount] = useState(0);
   const [lastTickTime, setLastTickTime] = useState(0);
 
-  const [flowNotes, setFlowNotes] = useState('Flow Notes');
+  const [flowNotes, setFlowNotes] = useState("Flow Notes");
 
   // FIXME: Make sound functions async so they don't halt the timer
   const [playStartHook] = useSound(startSfx);
@@ -56,7 +56,7 @@ function Timer() {
       setCloverCount(0);
       playStartSfx();
     }
-    
+
     setIsFocus(!isFocus);
   }
 
@@ -91,12 +91,12 @@ function Timer() {
       interval = setInterval(() => {
         let elapsed = getElapsed();
 
-        let newFocusTime = focusTimeSec - elapsed
+        let newFocusTime = focusTimeSec - elapsed;
 
         for (const i of Array(elapsed).keys()) {
           let testTime = focusTimeSec - i;
           if (testTime % breakRatio === 0) {
-            setBreakTime(seconds => seconds + 1);
+            setBreakTime((seconds) => seconds + 1);
           }
         }
 
@@ -107,8 +107,8 @@ function Timer() {
           playEndSfx();
           if (newPomCount % 4 === 0) {
             // Completed a Clover
-            setCloverCount(count => count + 1)
-            setBreakTime(seconds => seconds + longBreakTimeSec)
+            setCloverCount((count) => count + 1);
+            setBreakTime((seconds) => seconds + longBreakTimeSec);
           }
           setFocusTime(pomodoroDurationSec);
         } else {
@@ -121,7 +121,7 @@ function Timer() {
       interval = setInterval(() => {
         let elapsed = getElapsed();
 
-        setBreakTime(seconds => seconds - elapsed);
+        setBreakTime((seconds) => seconds - elapsed);
 
         if (breakTimeSec === 10) {
           playBreakEndWarningSfx();
@@ -137,46 +137,62 @@ function Timer() {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isCounting, isFocus, focusTimeSec, breakTimeSec, longBreakTimeSec, breakRatio, pomodoroDurationSec, pomCount, lastTickTime, reset]);
+  }, [
+    isCounting,
+    isFocus,
+    focusTimeSec,
+    breakTimeSec,
+    longBreakTimeSec,
+    breakRatio,
+    pomodoroDurationSec,
+    pomCount,
+    lastTickTime,
+    reset,
+  ]);
 
   return (
     <Wrapper>
-        <TimeDisplay seconds={focusTimeSec} />
-        <span>Break: {Math.floor(breakTimeSec / 60)}m {breakTimeSec % 60}s</span>
-        <span>---</span>
-        <span>Poms: {pomCount}</span>
-        <span>Clovers: {cloverCount}</span>
-        <button className={`button button-primary button-primary-${isFocus ? 'active' : 'inactive'}`} onClick={toggleFocus}>
-          {isFocus ? 'Break' : 'Focus'}
-        </button>
-        <button className="button" onClick={reset}>
-          Reset
-        </button>
-        <EdiText
-          submitOnEnter
-          cancelOnEscape
-          editOnViewClick={true}
-          viewContainerClassName='my-custom-view-wrapper'
-          type="text"
-          inputProps={{
-            rows: 5
-          }}
-          saveButtonContent='Apply'
-          cancelButtonContent={<strong>Cancel</strong>}
-          editButtonContent='Edit Flow Notes'
-          value={flowNotes}
-          onSave={setFlowNotes}
-        />
+      <TimeDisplay seconds={focusTimeSec} variant="primary" />
+      <TimeDisplay seconds={breakTimeSec} variant="secondary" />
+      <span>---</span>
+      <span>Poms: {pomCount}</span>
+      <span>Clovers: {cloverCount}</span>
+      <button
+        className={`button button-primary button-primary-${
+          isFocus ? "active" : "inactive"
+        }`}
+        onClick={toggleFocus}
+      >
+        {isFocus ? "Break" : "Focus"}
+      </button>
+      <button className="button" onClick={reset}>
+        Reset
+      </button>
+      <EdiText
+        submitOnEnter
+        cancelOnEscape
+        editOnViewClick={true}
+        viewContainerClassName="my-custom-view-wrapper"
+        type="text"
+        inputProps={{
+          rows: 5,
+        }}
+        saveButtonContent="Apply"
+        cancelButtonContent={<strong>Cancel</strong>}
+        editButtonContent="Edit Flow Notes"
+        value={flowNotes}
+        onSave={setFlowNotes}
+      />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+`;
 
 export default Timer;

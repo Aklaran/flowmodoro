@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import './reset.css';
-import App from './components/App';
-import * as serviceWorker from './models/serviceWorker';
+import "./reset.css";
+import App from "./components/App";
+import * as serviceWorker from "./models/serviceWorker";
 
-import './assets/fonts/square_sans_serif_7.ttf'
+import "./assets/fonts/square_sans_serif.ttf";
 
 ReactDOM.render(
   <React.StrictMode>
     <App></App>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
