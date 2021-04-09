@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/flowmodoro/static/css/main.7c7a0893.chunk.css",
-    "main.js": "/flowmodoro/static/js/main.1049c4a5.chunk.js",
-    "main.js.map": "/flowmodoro/static/js/main.1049c4a5.chunk.js.map",
+    "main.js": "/flowmodoro/static/js/main.a1d5d654.chunk.js",
+    "main.js.map": "/flowmodoro/static/js/main.a1d5d654.chunk.js.map",
     "runtime-main.js": "/flowmodoro/static/js/runtime-main.237f885f.js",
     "runtime-main.js.map": "/flowmodoro/static/js/runtime-main.237f885f.js.map",
     "static/js/2.9ab76e62.chunk.js": "/flowmodoro/static/js/2.9ab76e62.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.237f885f.js",
     "static/js/2.9ab76e62.chunk.js",
     "static/css/main.7c7a0893.chunk.css",
-    "static/js/main.1049c4a5.chunk.js"
+    "static/js/main.a1d5d654.chunk.js"
   ]
 }
