@@ -14,5 +14,5 @@ export default function App() {
 
 const Wrapper = styled.div`
   height: 100%;
-  background-color: ${COLORS.tan}
+  background-color: ${COLORS.gray300}
 `

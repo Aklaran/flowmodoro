@@ -8,6 +8,7 @@ import startSfx from '../assets/sounds/me-too-603.mp3';
 import endSfx from '../assets/sounds/pristine-609.mp3';
 import breakEndWarningSfx from '../assets/sounds/hold-on-560.mp3';
 import resetSfx from '../assets/sounds/come-to-daddy-511.mp3';
+import TimeDisplay from './TimeDisplay';
 
 function Timer() {
   const pomodoroDurationSec = 25 * 60;
@@ -140,7 +141,7 @@ function Timer() {
 
   return (
     <Wrapper>
-        <span>Focus: {Math.floor(focusTimeSec / 60)}m {focusTimeSec % 60}s</span>
+        <TimeDisplay seconds={focusTimeSec} />
         <span>Break: {Math.floor(breakTimeSec / 60)}m {breakTimeSec % 60}s</span>
         <span>---</span>
         <span>Poms: {pomCount}</span>
