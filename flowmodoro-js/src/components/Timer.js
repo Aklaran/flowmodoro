@@ -15,7 +15,7 @@ import { COLORS } from "../constants";
 import PomArchive from "./PomArchive";
 
 function Timer() {
-    const pomodoroDurationSec = 10;
+    const pomodoroDurationSec = 25 * 60;
     const shortBreakTimeSec = 5 * 60;
     const breakRatio = Math.ceil(pomodoroDurationSec / shortBreakTimeSec);
     const longBreakTimeSec = 15 * 60;
@@ -181,6 +181,7 @@ function Timer() {
             <Arc
                 color={COLORS.burgundy}
                 radius={600}
+                strokeWidth={10}
                 startAngleDeg={0}
                 endAngleDeg={
                     ((pomodoroDurationSec - focusTimeSec) /
@@ -190,7 +191,8 @@ function Timer() {
             />
             <Arc
                 color={COLORS.purple}
-                radius={588}
+                radius={610}
+                strokeWidth={5}
                 startAngleDeg={
                     breakTimeSec >= pomodoroDurationSec
                         ? -359.99

@@ -5,17 +5,16 @@ import styled from "styled-components";
 
 function Arc(props) {
     const centerPoint = props.radius / 2;
-    const strokeWidth = 5;
     return (
         <SvgArc dims={props.radius + "px"}>
             <path
                 fill="none"
                 stroke={props.color}
-                strokeWidth={strokeWidth}
+                strokeWidth={props.strokeWidth}
                 d={describeArc(
                     centerPoint,
                     centerPoint,
-                    props.radius / 2 - strokeWidth,
+                    props.radius / 2 - props.strokeWidth,
                     props.startAngleDeg,
                     props.endAngleDeg
                 )}
@@ -29,6 +28,7 @@ Arc.propTypes = {
     startAngleDeg: PropTypes.number,
     endAngleDeg: PropTypes.number,
     color: PropTypes.string,
+    strokeWidth: PropTypes.number,
 };
 
 const SvgArc = styled.svg`
