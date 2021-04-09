@@ -179,9 +179,14 @@ function Timer() {
                 startAngleDeg={0}
                 endAngleDeg={(breakTimeSec / pomodoroDurationSec) * -360}
             />
+            <p>
+                {pomCount} ||| {cloverCount}
+            </p>
         </Wrapper>
     );
 }
+
+// TODO: Sectioned circles and cool pom archive display
 
 const Wrapper = styled.div`
     display: flex;
