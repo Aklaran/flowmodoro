@@ -1,29 +1,28 @@
 {
   "files": {
-    "main.css": "/flowmodoro/static/css/main.1bde8307.chunk.css",
-    "main.js": "/flowmodoro/static/js/main.1c2337a5.chunk.js",
-    "main.js.map": "/flowmodoro/static/js/main.1c2337a5.chunk.js.map",
-    "runtime-main.js": "/flowmodoro/static/js/runtime-main.08a2dd27.js",
-    "runtime-main.js.map": "/flowmodoro/static/js/runtime-main.08a2dd27.js.map",
-    "static/js/2.49bd4088.chunk.js": "/flowmodoro/static/js/2.49bd4088.chunk.js",
-    "static/js/2.49bd4088.chunk.js.map": "/flowmodoro/static/js/2.49bd4088.chunk.js.map",
-    "static/js/3.627bd524.chunk.js": "/flowmodoro/static/js/3.627bd524.chunk.js",
-    "static/js/3.627bd524.chunk.js.map": "/flowmodoro/static/js/3.627bd524.chunk.js.map",
+    "main.css": "/flowmodoro/static/css/main.dfcfe2c8.chunk.css",
+    "main.js": "/flowmodoro/static/js/main.9da9ae6c.chunk.js",
+    "main.js.map": "/flowmodoro/static/js/main.9da9ae6c.chunk.js.map",
+    "runtime-main.js": "/flowmodoro/static/js/runtime-main.237f885f.js",
+    "runtime-main.js.map": "/flowmodoro/static/js/runtime-main.237f885f.js.map",
+    "static/js/2.f9ad46ec.chunk.js": "/flowmodoro/static/js/2.f9ad46ec.chunk.js",
+    "static/js/2.f9ad46ec.chunk.js.map": "/flowmodoro/static/js/2.f9ad46ec.chunk.js.map",
+    "static/js/3.52a64a58.chunk.js": "/flowmodoro/static/js/3.52a64a58.chunk.js",
+    "static/js/3.52a64a58.chunk.js.map": "/flowmodoro/static/js/3.52a64a58.chunk.js.map",
     "index.html": "/flowmodoro/index.html",
-    "precache-manifest.378ee963ce1fc17cc99269499f81c760.js": "/flowmodoro/precache-manifest.378ee963ce1fc17cc99269499f81c760.js",
-    "service-worker.js": "/flowmodoro/service-worker.js",
-    "static/css/main.1bde8307.chunk.css.map": "/flowmodoro/static/css/main.1bde8307.chunk.css.map",
-    "static/js/2.49bd4088.chunk.js.LICENSE.txt": "/flowmodoro/static/js/2.49bd4088.chunk.js.LICENSE.txt",
-    "static/js/3.627bd524.chunk.js.LICENSE.txt": "/flowmodoro/static/js/3.627bd524.chunk.js.LICENSE.txt",
-    "static/media/come-to-daddy-511.mp3": "/flowmodoro/static/media/come-to-daddy-511.e200f56e.mp3",
-    "static/media/hold-on-560.mp3": "/flowmodoro/static/media/hold-on-560.e545ac92.mp3",
-    "static/media/me-too-603.mp3": "/flowmodoro/static/media/me-too-603.4d232749.mp3",
-    "static/media/pristine-609.mp3": "/flowmodoro/static/media/pristine-609.f980f230.mp3"
+    "static/css/main.dfcfe2c8.chunk.css.map": "/flowmodoro/static/css/main.dfcfe2c8.chunk.css.map",
+    "static/js/2.f9ad46ec.chunk.js.LICENSE.txt": "/flowmodoro/static/js/2.f9ad46ec.chunk.js.LICENSE.txt",
+    "static/js/3.52a64a58.chunk.js.LICENSE.txt": "/flowmodoro/static/js/3.52a64a58.chunk.js.LICENSE.txt",
+    "static/media/come-to-daddy-511.8691ddcc.mp3": "/flowmodoro/static/media/come-to-daddy-511.8691ddcc.mp3",
+    "static/media/hold-on-560.603e537e.mp3": "/flowmodoro/static/media/hold-on-560.603e537e.mp3",
+    "static/media/me-too-603.14aaa2d5.mp3": "/flowmodoro/static/media/me-too-603.14aaa2d5.mp3",
+    "static/media/pristine-609.4aca068a.mp3": "/flowmodoro/static/media/pristine-609.4aca068a.mp3",
+    "static/media/reset.css": "/flowmodoro/static/media/square_sans_serif.80a58cf0.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.08a2dd27.js",
-    "static/js/2.49bd4088.chunk.js",
-    "static/css/main.1bde8307.chunk.css",
-    "static/js/main.1c2337a5.chunk.js"
+    "static/js/runtime-main.237f885f.js",
+    "static/js/2.f9ad46ec.chunk.js",
+    "static/css/main.dfcfe2c8.chunk.css",
+    "static/js/main.9da9ae6c.chunk.js"
   ]
 }
