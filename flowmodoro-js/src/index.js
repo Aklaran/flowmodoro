@@ -5,7 +5,7 @@ import './reset.css';
 import App from './components/App';
 import * as serviceWorker from './models/serviceWorker';
 
-
+import './assets/fonts/square_sans_serif_7.ttf'
 
 ReactDOM.render(
   <React.StrictMode>
