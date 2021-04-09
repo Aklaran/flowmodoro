@@ -37,6 +37,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     width: 400px;
+    height: 52px;
     flex-wrap: wrap;
     margin-top: 30px;
 `;

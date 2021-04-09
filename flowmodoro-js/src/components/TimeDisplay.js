@@ -36,13 +36,13 @@ const STYLES = {
     primary: {
         "--font-weight": 1000,
         "--font-size": 10 + "rem",
-        "--margin-right": -0.8 + "rem",
+        "--margin-right": -1 + "rem",
         "--color": COLORS.burgundy,
     },
     secondary: {
         "--font-weight": 300,
         "--font-size": 5 + "rem",
-        "--margin-right": -0.4 + "rem",
+        "--margin-right": -0.5 + "rem",
         "--color": COLORS.purple,
     },
 };
