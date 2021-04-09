@@ -129,7 +129,7 @@ function Timer() {
                 }
 
                 // TODO: Maybe give a bit of leeway with break time?
-                if (breakTimeSec === 0) {
+                if (breakTimeSec < 0) {
                     reset();
                 }
             }, 1000);
