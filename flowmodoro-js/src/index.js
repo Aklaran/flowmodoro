@@ -6,12 +6,13 @@ import App from "./components/App";
 import * as serviceWorker from "./models/serviceWorker";
 
 import "./assets/fonts/square_sans_serif.ttf";
+import "./assets/fonts/Quicksand-VariableFont_wght.ttf";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App></App>
-  </React.StrictMode>,
-  document.getElementById("root")
+    <React.StrictMode>
+        <App></App>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
