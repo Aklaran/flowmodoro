@@ -31,10 +31,12 @@ const Wrapper = styled.button`
         color: ${COLORS.purple};
         border-color: ${COLORS.purple};
         box-shadow: 0 5px ${COLORS.transparentGray35};
+        text-shadow: 0 3px ${COLORS.transparentGray35};
     }
 
     &:active {
         box-shadow: 0 3px ${COLORS.transparentGray35};
+        text-shadow: 0 1px ${COLORS.transparentGray35};
         transform: translateY(2px);
     }
 `;

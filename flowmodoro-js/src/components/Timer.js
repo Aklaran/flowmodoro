@@ -11,6 +11,7 @@ import resetSfx from "../assets/sounds/come-to-daddy-511.mp3";
 import TimeDisplay from "./TimeDisplay";
 import Button from "./Button";
 import Arc from "./Arc";
+import { COLORS } from "../constants";
 
 function Timer() {
     const pomodoroDurationSec = 25 * 60;
@@ -130,7 +131,7 @@ function Timer() {
                 }
 
                 // TODO: Maybe give a bit of leeway with break time?
-                if (breakTimeSec < 0) {
+                if (breakTimeSec <= 0) {
                     reset();
                 }
             }, 1000);
@@ -162,7 +163,22 @@ function Timer() {
             />
             <TimeDisplay seconds={focusTimeSec} variant="primary" />
             <TimeDisplay seconds={breakTimeSec} variant="secondary" />
-            <Arc radius={600} startAngleDeg={0} endAngleDeg={200} />
+            <Arc
+                color={COLORS.burgundy}
+                radius={600}
+                startAngleDeg={0}
+                endAngleDeg={
+                    ((pomodoroDurationSec - focusTimeSec) /
+                        pomodoroDurationSec) *
+                    360
+                }
+            />
+            <Arc
+                color={COLORS.purple}
+                radius={588}
+                startAngleDeg={0}
+                endAngleDeg={(breakTimeSec / pomodoroDurationSec) * -360}
+            />
         </Wrapper>
     );
 }

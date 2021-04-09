@@ -10,7 +10,7 @@ function Arc(props) {
         <SvgArc dims={props.radius + "px"}>
             <path
                 fill="none"
-                stroke={COLORS.purple}
+                stroke={props.color}
                 stroke-width={strokeWidth}
                 d={describeArc(
                     centerPoint,
