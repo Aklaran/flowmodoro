@@ -10,6 +10,7 @@ import breakEndWarningSfx from "../assets/sounds/hold-on-560.mp3";
 import resetSfx from "../assets/sounds/come-to-daddy-511.mp3";
 import TimeDisplay from "./TimeDisplay";
 import Button from "./Button";
+import Arc from "./Arc";
 
 function Timer() {
     const pomodoroDurationSec = 25 * 60;
@@ -161,6 +162,7 @@ function Timer() {
             />
             <TimeDisplay seconds={focusTimeSec} variant="primary" />
             <TimeDisplay seconds={breakTimeSec} variant="secondary" />
+            <Arc radius={600} startAngleDeg={0} endAngleDeg={200} />
         </Wrapper>
     );
 }
