@@ -12,9 +12,10 @@ import TimeDisplay from "./TimeDisplay";
 import Button from "./Button";
 import Arc from "./Arc";
 import { COLORS } from "../constants";
+import PomArchive from "./PomArchive";
 
 function Timer() {
-    const pomodoroDurationSec = 25 * 60;
+    const pomodoroDurationSec = 10;
     const shortBreakTimeSec = 5 * 60;
     const breakRatio = Math.ceil(pomodoroDurationSec / shortBreakTimeSec);
     const longBreakTimeSec = 15 * 60;
@@ -26,6 +27,10 @@ function Timer() {
     const [pomCount, setPomCount] = useState(0);
     const [cloverCount, setCloverCount] = useState(0);
     const [lastTickTime, setLastTickTime] = useState(0);
+
+    const [ticker, setTicker] = useState(0);
+    const [archive, updateArchive] = useState([]);
+    const [pomIndices, updatePomIndices] = useState([]);
 
     const [flowNotes, setFlowNotes] = useState("Flow Notes");
 
@@ -58,9 +63,12 @@ function Timer() {
             setPomCount(0);
             setCloverCount(0);
             playStartSfx();
+        } else {
+            updateArchive((prev) => [...prev, ticker]);
         }
 
         setIsFocus(!isFocus);
+        setTicker(0);
     }
 
     function reset() {
@@ -70,18 +78,17 @@ function Timer() {
         setIsCounting(false);
         setLastTickTime(0);
         playResetSfx();
+        updateArchive([]);
+        updatePomIndices([]);
     }
 
     function getElapsed() {
         if (lastTickTime === 0) {
             setLastTickTime(Date.now());
-            console.log(lastTickTime);
-            console.log(0);
             return 1;
         }
 
         let elapsed = Math.round((Date.now() - lastTickTime) / 1000);
-        console.log(elapsed + " sec elapsed");
         setLastTickTime(Date.now());
         return elapsed;
     }
@@ -93,9 +100,11 @@ function Timer() {
             // In a focus session
             interval = setInterval(() => {
                 let elapsed = getElapsed();
+                setTicker((ticker) => ticker + elapsed);
 
                 let newFocusTime = focusTimeSec - elapsed;
 
+                // Since multiple seconds could have elapsed, check if we earned a break for any of those seconds.
                 for (const i of Array(elapsed).keys()) {
                     let testTime = focusTimeSec - i;
                     if (testTime % breakRatio === 0) {
@@ -107,6 +116,11 @@ function Timer() {
                     // Completed a Pom
                     let newPomCount = pomCount + 1;
                     setPomCount(newPomCount);
+
+                    updatePomIndices((prev) => [...prev, archive.length]);
+                    updateArchive((prev) => [...prev, ticker]);
+                    setTicker(0);
+
                     playEndSfx();
                     if (newPomCount % 4 === 0) {
                         // Completed a Clover
@@ -123,6 +137,7 @@ function Timer() {
             // In a break session
             interval = setInterval(() => {
                 let elapsed = getElapsed();
+                setTicker((ticker) => ticker + elapsed);
 
                 setBreakTime((seconds) => seconds - elapsed);
 
@@ -183,14 +198,10 @@ function Timer() {
                 }
                 endAngleDeg={0}
             />
-            <p>
-                {pomCount} ||| {cloverCount}
-            </p>
+            <PomArchive timeBlocks={archive} pomIndices={pomIndices} />
         </Wrapper>
     );
 }
-
-// TODO: Sectioned circles and cool pom archive display
 
 const Wrapper = styled.div`
     display: flex;

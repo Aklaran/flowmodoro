@@ -11,7 +11,7 @@ function Arc(props) {
             <path
                 fill="none"
                 stroke={props.color}
-                stroke-width={strokeWidth}
+                strokeWidth={strokeWidth}
                 d={describeArc(
                     centerPoint,
                     centerPoint,
