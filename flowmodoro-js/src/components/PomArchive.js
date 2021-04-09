@@ -36,6 +36,9 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 400px;
+    flex-wrap: wrap;
+    margin-top: 30px;
 `;
 
 export default PomArchive;
