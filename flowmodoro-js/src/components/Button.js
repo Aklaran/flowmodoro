@@ -30,13 +30,14 @@ const Wrapper = styled.button`
     &:hover {
         color: ${COLORS.purple};
         border-color: ${COLORS.purple};
-        box-shadow: 0 5px ${COLORS.transparentGray35};
-        text-shadow: 0 3px ${COLORS.transparentGray35};
+        box-shadow: 0 5px 5px ${COLORS.transparentGray35};
+        text-shadow: 0 3px 3px ${COLORS.transparentGray35};
+        cursor: pointer;
     }
 
     &:active {
-        box-shadow: 0 3px ${COLORS.transparentGray35};
-        text-shadow: 0 1px ${COLORS.transparentGray35};
+        box-shadow: 0 3px 3px ${COLORS.transparentGray35};
+        text-shadow: 0 1px 1px ${COLORS.transparentGray35};
         transform: translateY(2px);
     }
 `;

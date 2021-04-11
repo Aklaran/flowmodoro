@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Timer from "./Timer";
 import { COLORS } from "../constants";
 import backgroundImage from "../assets/images/the_glacier_above.jpg";
 import TopBar from "./TopBar";
+import AboutModal from "./AboutModal";
 
 export default function App() {
+    const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+
     return (
         <Wrapper>
-            <TopBar />
+            <TopBar onFaqClick={setIsAboutModalOpen} />
             <Timer />
             <Background />
             <BackgroundOverlay />
+            {isAboutModalOpen && (
+                <AboutModal onCloseClicked={setIsAboutModalOpen} />
+            )}
         </Wrapper>
     );
 }

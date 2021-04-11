@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Wolf from "../assets/images/wolf.svg";
 import { COLORS } from "../constants";
 
-function TopBar(props) {
+function TopBar({ onFaqClick }) {
     return (
         <Wrapper>
             <a
@@ -16,13 +16,17 @@ function TopBar(props) {
                 <img src={Wolf} alt="Aklaran" height="50px" width="50px" />
             </a>
             <div>
-                <FaqLink>What is this?</FaqLink>
+                <FaqLink onClick={() => onFaqClick(true)}>
+                    What is this?
+                </FaqLink>
             </div>
         </Wrapper>
     );
 }
 
-TopBar.propTypes = {};
+TopBar.propTypes = {
+    onFaqClick: PropTypes.func,
+};
 
 const Wrapper = styled.div`
     position: absolute;
@@ -41,6 +45,7 @@ const FaqLink = styled.a`
 
     &:hover {
         color: ${COLORS.purple};
+        cursor: pointer;
     }
 `;
 
