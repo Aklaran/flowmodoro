@@ -4,10 +4,12 @@ import styled from "styled-components";
 import Timer from "./Timer";
 import { COLORS } from "../constants";
 import backgroundImage from "../assets/images/the_glacier_above.jpg";
+import TopBar from "./TopBar";
 
 export default function App() {
     return (
         <Wrapper>
+            <TopBar />
             <Timer />
             <Background />
             <BackgroundOverlay />
