@@ -4,35 +4,50 @@ import styled from "styled-components";
 import { COLORS } from "../constants";
 
 function Button(props) {
+    const ButtonType = TYPES[props.type];
     const text = props.isActive ? props.activeText : props.inactiveText;
-    return <Wrapper onClick={props.onClick}>{text}</Wrapper>;
+
+    return (
+        <ButtonType onClick={props.onClick} isVisible={props.isVisible}>
+            {text}
+        </ButtonType>
+    );
 }
 
 Button.propTypes = {
+    type: PropTypes.string,
     isActive: PropTypes.bool,
     activeText: PropTypes.string,
     inactiveText: PropTypes.string,
     onClick: PropTypes.func,
+    isVisible: PropTypes.bool,
 };
 
-const Wrapper = styled.button`
+const ButtonWrapper = styled.button`
     background-color: transparent;
-    border: 5px solid ${COLORS.lightpurple};
     color: ${COLORS.lightpurple};
+    font-family: Quicksand;
+    font-weight: 400;
+    margin-bottom: 15px;
+    visibility: ${(props) => !props.isVisible && "hidden"};
+
+    &:hover {
+        color: ${COLORS.purple};
+        cursor: pointer;
+    }
+`;
+
+const PrimaryButton = styled(ButtonWrapper)`
+    border: 5px solid ${COLORS.lightpurple};
     border-radius: 25%/50%;
     width: 150px;
     height: 57px;
     font-size: 2rem;
-    font-family: Quicksand;
-    font-weight: 400;
-    margin-bottom: 15px;
 
     &:hover {
-        color: ${COLORS.purple};
         border-color: ${COLORS.purple};
         box-shadow: 0 5px 5px ${COLORS.transparentGray35};
         text-shadow: 0 3px 3px ${COLORS.transparentGray35};
-        cursor: pointer;
     }
 
     &:active {
@@ -41,5 +56,16 @@ const Wrapper = styled.button`
         transform: translateY(2px);
     }
 `;
+
+const SecondaryButton = styled(ButtonWrapper)`
+    font-size: 1rem;
+    border: none;
+    text-decoration: underline;
+`;
+
+const TYPES = {
+    primary: PrimaryButton,
+    secondary: SecondaryButton,
+};
 
 export default Button;

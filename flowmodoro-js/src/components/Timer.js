@@ -23,6 +23,7 @@ function Timer() {
     const [focusTimeSec, setFocusTime] = useState(pomodoroDurationSec);
     const [breakTimeSec, setBreakTime] = useState(0);
     const [isCounting, setIsCounting] = useState(false);
+    const [isPaused, setIsPaused] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
     const [pomCount, setPomCount] = useState(0);
     const [cloverCount, setCloverCount] = useState(0);
@@ -56,6 +57,15 @@ function Timer() {
         playResetHook();
     }
 
+    function togglePaused() {
+        if (!isPaused) {
+            setIsPaused(true);
+        } else {
+            setIsPaused(false);
+            setLastTickTime(Date.now);
+        }
+    }
+
     function toggleFocus() {
         if (!isCounting) {
             // This is the first run after a reset
@@ -76,6 +86,7 @@ function Timer() {
         setBreakTime(0);
         setIsFocus(false);
         setIsCounting(false);
+        setIsPaused(false);
         setLastTickTime(0);
         playResetSfx();
         updateArchive([]);
@@ -96,7 +107,7 @@ function Timer() {
     useEffect(() => {
         let interval = null;
 
-        if (isCounting && isFocus) {
+        if (isCounting && !isPaused && isFocus) {
             // In a focus session
             interval = setInterval(() => {
                 let elapsed = getElapsed();
@@ -133,7 +144,7 @@ function Timer() {
                     setFocusTime(newFocusTime);
                 }
             }, 1000);
-        } else if (isCounting && !isFocus) {
+        } else if (isCounting && !isPaused && !isFocus) {
             // In a break session
             interval = setInterval(() => {
                 let elapsed = getElapsed();
@@ -171,10 +182,20 @@ function Timer() {
     return (
         <Wrapper>
             <Button
+                type="primary"
                 isActive={isFocus}
                 activeText="break."
                 inactiveText="focus."
                 onClick={toggleFocus}
+                isVisible={!isPaused}
+            />
+            <Button
+                type="secondary"
+                isActive={!isPaused}
+                activeText="pause."
+                inactiveText="resume."
+                onClick={togglePaused}
+                isVisible={isCounting}
             />
             <TimeDisplay seconds={focusTimeSec} variant="primary" />
             <TimeDisplay seconds={breakTimeSec} variant="secondary" />
@@ -200,7 +221,7 @@ function Timer() {
                 }
                 endAngleDeg={0}
             />
-            <PomArchive timeBlocks={[1]} pomIndices={[0]} />
+            <PomArchive timeBlocks={archive} pomIndices={pomIndices} />
         </Wrapper>
     );
 }
