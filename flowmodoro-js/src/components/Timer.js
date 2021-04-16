@@ -200,7 +200,7 @@ function Timer() {
                 }
                 endAngleDeg={0}
             />
-            <PomArchive timeBlocks={archive} pomIndices={pomIndices} />
+            <PomArchive timeBlocks={[1]} pomIndices={[0]} />
         </Wrapper>
     );
 }

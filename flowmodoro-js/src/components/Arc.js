@@ -24,11 +24,11 @@ function Arc(props) {
 }
 
 Arc.propTypes = {
-    radius: PropTypes.number,
-    startAngleDeg: PropTypes.number,
-    endAngleDeg: PropTypes.number,
-    color: PropTypes.string,
-    strokeWidth: PropTypes.number,
+    radius: PropTypes.number.isRequired,
+    startAngleDeg: PropTypes.number.isRequired,
+    endAngleDeg: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+    strokeWidth: PropTypes.number.isRequired,
 };
 
 const SvgArc = styled.svg`
@@ -51,6 +51,7 @@ export default Arc;
 
 function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
     var angleinRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
+
     return {
         x: centerX + radius * Math.cos(angleinRadians),
         y: centerY + radius * Math.sin(angleinRadians),

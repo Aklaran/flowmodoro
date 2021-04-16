@@ -20,7 +20,7 @@ function PomArchive(props) {
     return (
         <Wrapper>
             {circleData.map((circle) => (
-                <SectionedCircle data={circle} radius={50} />
+                <SectionedCircle data={circle} radius={50} strokeWidth={5} />
             ))}
         </Wrapper>
     );

@@ -6,7 +6,7 @@ import { COLORS } from "../constants";
 
 function SectionedCircle(props) {
     function createArcs(data) {
-        if (data.length == 0) {
+        if (data.length === 0) {
             return [];
         }
         let totalTime = 0;
@@ -23,7 +23,7 @@ function SectionedCircle(props) {
             endDeg = startDeg + (arcLen / totalTime) * 360;
 
             // Hack: 360 counts as 0 :()
-            if (endDeg == 360) {
+            if (endDeg === 360) {
                 endDeg = 359.99;
             }
             result.push(
@@ -32,6 +32,7 @@ function SectionedCircle(props) {
                     startAngleDeg={startDeg}
                     endAngleDeg={endDeg}
                     color={isFocus ? COLORS.burgundy : COLORS.purple}
+                    strokeWidth={props.strokeWidth}
                 />
             );
 
@@ -48,7 +49,8 @@ function SectionedCircle(props) {
 }
 
 SectionedCircle.propTypes = {
-    radius: PropTypes.number,
+    radius: PropTypes.number.isRequired,
+    strokeWidth: PropTypes.number.isRequired,
     data: PropTypes.arrayOf(PropTypes.number),
 };
 
